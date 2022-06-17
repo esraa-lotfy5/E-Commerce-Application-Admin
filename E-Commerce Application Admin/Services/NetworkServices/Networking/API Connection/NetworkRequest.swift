@@ -10,6 +10,7 @@ import Alamofire
 
 enum NetworkRequest{
     
+    case registerCustomer(customer: Parameters)
 }
 
 extension NetworkRequest : TargetType {
@@ -22,18 +23,24 @@ extension NetworkRequest : TargetType {
     var path: String {
         switch self {
             
+        case .registerCustomer:
+            return Constants.endPointCreateCustomer
         }
     }
     
     var method: HTTPMethod {
         switch self {
             
+        case .registerCustomer:
+            return .post
         }
     }
     
     var task: Task {
         switch self {
-
+            
+        case .registerCustomer(let customer):
+            return .requestParameters(parameters: customer, encoding: URLEncoding.default)
         }
     }
     
