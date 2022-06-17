@@ -6,3 +6,13 @@
 //
 
 import Foundation
+import Alamofire
+
+protocol NetworkAPIProtocol {
+    
+    
+}
+
+class NetworkAPI: BaseAPI<NetworkRequest>, NetworkAPIProtocol {
+    
+}
