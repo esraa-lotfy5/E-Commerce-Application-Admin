@@ -17,6 +17,11 @@
 		09C05CA9285C78FE0071F607 /* E_Commerce_Application_AdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05CA8285C78FE0071F607 /* E_Commerce_Application_AdminTests.swift */; };
 		09C05CB3285C78FE0071F607 /* E_Commerce_Application_AdminUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05CB2285C78FE0071F607 /* E_Commerce_Application_AdminUITests.swift */; };
 		09C05CB5285C78FE0071F607 /* E_Commerce_Application_AdminUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05CB4285C78FE0071F607 /* E_Commerce_Application_AdminUITestsLaunchTests.swift */; };
+		09C05CC9285C82E80071F607 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05CC8285C82E80071F607 /* BaseAPI.swift */; };
+		09C05CCB285C82FF0071F607 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05CCA285C82FF0071F607 /* TargetType.swift */; };
+		09C05CCD285C83180071F607 /* NetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05CCC285C83180071F607 /* NetworkAPI.swift */; };
+		09C05CCF285C832B0071F607 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05CCE285C832B0071F607 /* NetworkRequest.swift */; };
+		09C05CD4285C84760071F607 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05CD3285C84760071F607 /* Constants.swift */; };
 		3B383A153540287029E11E9D /* Pods_E_Commerce_Application_Admin_E_Commerce_Application_AdminUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D480A8297474A09F5715C445 /* Pods_E_Commerce_Application_Admin_E_Commerce_Application_AdminUITests.framework */; };
 		E1CAFE533B5C8CE185633E8A /* Pods_E_Commerce_Application_AdminTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD6CF80C32213E3647AE510 /* Pods_E_Commerce_Application_AdminTests.framework */; };
 /* End PBXBuildFile section */
@@ -51,6 +56,11 @@
 		09C05CAE285C78FE0071F607 /* E-Commerce Application AdminUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "E-Commerce Application AdminUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C05CB2285C78FE0071F607 /* E_Commerce_Application_AdminUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = E_Commerce_Application_AdminUITests.swift; sourceTree = "<group>"; };
 		09C05CB4285C78FE0071F607 /* E_Commerce_Application_AdminUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = E_Commerce_Application_AdminUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		09C05CC8285C82E80071F607 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
+		09C05CCA285C82FF0071F607 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
+		09C05CCC285C83180071F607 /* NetworkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPI.swift; sourceTree = "<group>"; };
+		09C05CCE285C832B0071F607 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		09C05CD3285C84760071F607 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1FD6CF80C32213E3647AE510 /* Pods_E_Commerce_Application_AdminTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_E_Commerce_Application_AdminTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA8B8A96E41445638717CDE /* Pods-E-Commerce Application Admin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-Commerce Application Admin.debug.xcconfig"; path = "Target Support Files/Pods-E-Commerce Application Admin/Pods-E-Commerce Application Admin.debug.xcconfig"; sourceTree = "<group>"; };
 		709EB86679631A036726A575 /* Pods-E-Commerce Application Admin-E-Commerce Application AdminUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-Commerce Application Admin-E-Commerce Application AdminUITests.release.xcconfig"; path = "Target Support Files/Pods-E-Commerce Application Admin-E-Commerce Application AdminUITests/Pods-E-Commerce Application Admin-E-Commerce Application AdminUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,11 +125,15 @@
 		09C05C91285C78F80071F607 /* E-Commerce Application Admin */ = {
 			isa = PBXGroup;
 			children = (
+				09C05CD2285C84340071F607 /* View */,
+				09C05CD1285C842A0071F607 /* Utils */,
+				09C05CD0285C841D0071F607 /* Model */,
+				09C05CC6285C82990071F607 /* Services */,
+				09C05CC1285C7F2F0071F607 /* Module */,
 				09C05C92285C78F80071F607 /* E_Commerce_Application_AdminApp.swift */,
 				09C05C94285C78F80071F607 /* ContentView.swift */,
 				09C05C96285C78FD0071F607 /* Assets.xcassets */,
 				09C05C9B285C78FD0071F607 /* Persistence.swift */,
-				09C05C9D285C78FD0071F607 /* E_Commerce_Application_Admin.xcdatamodeld */,
 				09C05C98285C78FD0071F607 /* Preview Content */,
 			);
 			path = "E-Commerce Application Admin";
@@ -150,6 +164,87 @@
 			path = "E-Commerce Application AdminUITests";
 			sourceTree = "<group>";
 		};
+		09C05CC1285C7F2F0071F607 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		09C05CC2285C81180071F607 /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				09C05CC3285C82560071F607 /* Networking */,
+			);
+			path = NetworkServices;
+			sourceTree = "<group>";
+		};
+		09C05CC3285C82560071F607 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				09C05CC5285C827D0071F607 /* Base */,
+				09C05CC4285C826B0071F607 /* API Connection */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		09C05CC4285C826B0071F607 /* API Connection */ = {
+			isa = PBXGroup;
+			children = (
+				09C05CCC285C83180071F607 /* NetworkAPI.swift */,
+				09C05CCE285C832B0071F607 /* NetworkRequest.swift */,
+			);
+			path = "API Connection";
+			sourceTree = "<group>";
+		};
+		09C05CC5285C827D0071F607 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				09C05CC8285C82E80071F607 /* BaseAPI.swift */,
+				09C05CCA285C82FF0071F607 /* TargetType.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		09C05CC6285C82990071F607 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				09C05CC7285C82A80071F607 /* CoreData Service */,
+				09C05CC2285C81180071F607 /* NetworkServices */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		09C05CC7285C82A80071F607 /* CoreData Service */ = {
+			isa = PBXGroup;
+			children = (
+				09C05C9D285C78FD0071F607 /* E_Commerce_Application_Admin.xcdatamodeld */,
+			);
+			path = "CoreData Service";
+			sourceTree = "<group>";
+		};
+		09C05CD0285C841D0071F607 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		09C05CD1285C842A0071F607 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				09C05CD3285C84760071F607 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		09C05CD2285C84340071F607 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		0BEDB9EE08ED7638B6FCB61D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,7 +265,6 @@
 				D61E02A1BAF8CF469BC88366 /* Pods-E-Commerce Application AdminTests.debug.xcconfig */,
 				D70CC7EA7604CD1402C38279 /* Pods-E-Commerce Application AdminTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -412,10 +506,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09C05CCB285C82FF0071F607 /* TargetType.swift in Sources */,
 				09C05C9C285C78FD0071F607 /* Persistence.swift in Sources */,
+				09C05CCF285C832B0071F607 /* NetworkRequest.swift in Sources */,
 				09C05C95285C78F80071F607 /* ContentView.swift in Sources */,
+				09C05CCD285C83180071F607 /* NetworkAPI.swift in Sources */,
 				09C05C93285C78F80071F607 /* E_Commerce_Application_AdminApp.swift in Sources */,
 				09C05C9F285C78FD0071F607 /* E_Commerce_Application_Admin.xcdatamodeld in Sources */,
+				09C05CC9285C82E80071F607 /* BaseAPI.swift in Sources */,
+				09C05CD4285C84760071F607 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
