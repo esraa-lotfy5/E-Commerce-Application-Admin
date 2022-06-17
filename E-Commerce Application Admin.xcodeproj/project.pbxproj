@@ -1,0 +1,603 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09C05C93285C78F80071F607 /* E_Commerce_Application_AdminApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05C92285C78F80071F607 /* E_Commerce_Application_AdminApp.swift */; };
+		09C05C95285C78F80071F607 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05C94285C78F80071F607 /* ContentView.swift */; };
+		09C05C97285C78FD0071F607 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09C05C96285C78FD0071F607 /* Assets.xcassets */; };
+		09C05C9A285C78FD0071F607 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09C05C99285C78FD0071F607 /* Preview Assets.xcassets */; };
+		09C05C9C285C78FD0071F607 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05C9B285C78FD0071F607 /* Persistence.swift */; };
+		09C05C9F285C78FD0071F607 /* E_Commerce_Application_Admin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09C05C9D285C78FD0071F607 /* E_Commerce_Application_Admin.xcdatamodeld */; };
+		09C05CA9285C78FE0071F607 /* E_Commerce_Application_AdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05CA8285C78FE0071F607 /* E_Commerce_Application_AdminTests.swift */; };
+		09C05CB3285C78FE0071F607 /* E_Commerce_Application_AdminUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05CB2285C78FE0071F607 /* E_Commerce_Application_AdminUITests.swift */; };
+		09C05CB5285C78FE0071F607 /* E_Commerce_Application_AdminUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05CB4285C78FE0071F607 /* E_Commerce_Application_AdminUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		09C05CA5285C78FE0071F607 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09C05C87285C78F80071F607 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09C05C8E285C78F80071F607;
+			remoteInfo = "E-Commerce Application Admin";
+		};
+		09C05CAF285C78FE0071F607 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09C05C87285C78F80071F607 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09C05C8E285C78F80071F607;
+			remoteInfo = "E-Commerce Application Admin";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09C05C8F285C78F80071F607 /* E-Commerce Application Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-Commerce Application Admin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		09C05C92285C78F80071F607 /* E_Commerce_Application_AdminApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = E_Commerce_Application_AdminApp.swift; sourceTree = "<group>"; };
+		09C05C94285C78F80071F607 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		09C05C96285C78FD0071F607 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		09C05C99285C78FD0071F607 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		09C05C9B285C78FD0071F607 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		09C05C9E285C78FD0071F607 /* E_Commerce_Application_Admin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = E_Commerce_Application_Admin.xcdatamodel; sourceTree = "<group>"; };
+		09C05CA4285C78FE0071F607 /* E-Commerce Application AdminTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "E-Commerce Application AdminTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		09C05CA8285C78FE0071F607 /* E_Commerce_Application_AdminTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = E_Commerce_Application_AdminTests.swift; sourceTree = "<group>"; };
+		09C05CAE285C78FE0071F607 /* E-Commerce Application AdminUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "E-Commerce Application AdminUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		09C05CB2285C78FE0071F607 /* E_Commerce_Application_AdminUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = E_Commerce_Application_AdminUITests.swift; sourceTree = "<group>"; };
+		09C05CB4285C78FE0071F607 /* E_Commerce_Application_AdminUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = E_Commerce_Application_AdminUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		09C05C8C285C78F80071F607 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09C05CA1285C78FE0071F607 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09C05CAB285C78FE0071F607 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		09C05C86285C78F80071F607 = {
+			isa = PBXGroup;
+			children = (
+				09C05C91285C78F80071F607 /* E-Commerce Application Admin */,
+				09C05CA7285C78FE0071F607 /* E-Commerce Application AdminTests */,
+				09C05CB1285C78FE0071F607 /* E-Commerce Application AdminUITests */,
+				09C05C90285C78F80071F607 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		09C05C90285C78F80071F607 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				09C05C8F285C78F80071F607 /* E-Commerce Application Admin.app */,
+				09C05CA4285C78FE0071F607 /* E-Commerce Application AdminTests.xctest */,
+				09C05CAE285C78FE0071F607 /* E-Commerce Application AdminUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		09C05C91285C78F80071F607 /* E-Commerce Application Admin */ = {
+			isa = PBXGroup;
+			children = (
+				09C05C92285C78F80071F607 /* E_Commerce_Application_AdminApp.swift */,
+				09C05C94285C78F80071F607 /* ContentView.swift */,
+				09C05C96285C78FD0071F607 /* Assets.xcassets */,
+				09C05C9B285C78FD0071F607 /* Persistence.swift */,
+				09C05C9D285C78FD0071F607 /* E_Commerce_Application_Admin.xcdatamodeld */,
+				09C05C98285C78FD0071F607 /* Preview Content */,
+			);
+			path = "E-Commerce Application Admin";
+			sourceTree = "<group>";
+		};
+		09C05C98285C78FD0071F607 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				09C05C99285C78FD0071F607 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		09C05CA7285C78FE0071F607 /* E-Commerce Application AdminTests */ = {
+			isa = PBXGroup;
+			children = (
+				09C05CA8285C78FE0071F607 /* E_Commerce_Application_AdminTests.swift */,
+			);
+			path = "E-Commerce Application AdminTests";
+			sourceTree = "<group>";
+		};
+		09C05CB1285C78FE0071F607 /* E-Commerce Application AdminUITests */ = {
+			isa = PBXGroup;
+			children = (
+				09C05CB2285C78FE0071F607 /* E_Commerce_Application_AdminUITests.swift */,
+				09C05CB4285C78FE0071F607 /* E_Commerce_Application_AdminUITestsLaunchTests.swift */,
+			);
+			path = "E-Commerce Application AdminUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		09C05C8E285C78F80071F607 /* E-Commerce Application Admin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09C05CB8285C78FE0071F607 /* Build configuration list for PBXNativeTarget "E-Commerce Application Admin" */;
+			buildPhases = (
+				09C05C8B285C78F80071F607 /* Sources */,
+				09C05C8C285C78F80071F607 /* Frameworks */,
+				09C05C8D285C78F80071F607 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "E-Commerce Application Admin";
+			productName = "E-Commerce Application Admin";
+			productReference = 09C05C8F285C78F80071F607 /* E-Commerce Application Admin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		09C05CA3285C78FE0071F607 /* E-Commerce Application AdminTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09C05CBB285C78FE0071F607 /* Build configuration list for PBXNativeTarget "E-Commerce Application AdminTests" */;
+			buildPhases = (
+				09C05CA0285C78FE0071F607 /* Sources */,
+				09C05CA1285C78FE0071F607 /* Frameworks */,
+				09C05CA2285C78FE0071F607 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09C05CA6285C78FE0071F607 /* PBXTargetDependency */,
+			);
+			name = "E-Commerce Application AdminTests";
+			productName = "E-Commerce Application AdminTests";
+			productReference = 09C05CA4285C78FE0071F607 /* E-Commerce Application AdminTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		09C05CAD285C78FE0071F607 /* E-Commerce Application AdminUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09C05CBE285C78FE0071F607 /* Build configuration list for PBXNativeTarget "E-Commerce Application AdminUITests" */;
+			buildPhases = (
+				09C05CAA285C78FE0071F607 /* Sources */,
+				09C05CAB285C78FE0071F607 /* Frameworks */,
+				09C05CAC285C78FE0071F607 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09C05CB0285C78FE0071F607 /* PBXTargetDependency */,
+			);
+			name = "E-Commerce Application AdminUITests";
+			productName = "E-Commerce Application AdminUITests";
+			productReference = 09C05CAE285C78FE0071F607 /* E-Commerce Application AdminUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		09C05C87285C78F80071F607 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					09C05C8E285C78F80071F607 = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+					09C05CA3285C78FE0071F607 = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = 09C05C8E285C78F80071F607;
+					};
+					09C05CAD285C78FE0071F607 = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = 09C05C8E285C78F80071F607;
+					};
+				};
+			};
+			buildConfigurationList = 09C05C8A285C78F80071F607 /* Build configuration list for PBXProject "E-Commerce Application Admin" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 09C05C86285C78F80071F607;
+			productRefGroup = 09C05C90285C78F80071F607 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				09C05C8E285C78F80071F607 /* E-Commerce Application Admin */,
+				09C05CA3285C78FE0071F607 /* E-Commerce Application AdminTests */,
+				09C05CAD285C78FE0071F607 /* E-Commerce Application AdminUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		09C05C8D285C78F80071F607 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09C05C9A285C78FD0071F607 /* Preview Assets.xcassets in Resources */,
+				09C05C97285C78FD0071F607 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09C05CA2285C78FE0071F607 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09C05CAC285C78FE0071F607 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		09C05C8B285C78F80071F607 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09C05C9C285C78FD0071F607 /* Persistence.swift in Sources */,
+				09C05C95285C78F80071F607 /* ContentView.swift in Sources */,
+				09C05C93285C78F80071F607 /* E_Commerce_Application_AdminApp.swift in Sources */,
+				09C05C9F285C78FD0071F607 /* E_Commerce_Application_Admin.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09C05CA0285C78FE0071F607 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09C05CA9285C78FE0071F607 /* E_Commerce_Application_AdminTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09C05CAA285C78FE0071F607 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09C05CB5285C78FE0071F607 /* E_Commerce_Application_AdminUITestsLaunchTests.swift in Sources */,
+				09C05CB3285C78FE0071F607 /* E_Commerce_Application_AdminUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		09C05CA6285C78FE0071F607 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 09C05C8E285C78F80071F607 /* E-Commerce Application Admin */;
+			targetProxy = 09C05CA5285C78FE0071F607 /* PBXContainerItemProxy */;
+		};
+		09C05CB0285C78FE0071F607 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 09C05C8E285C78F80071F607 /* E-Commerce Application Admin */;
+			targetProxy = 09C05CAF285C78FE0071F607 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		09C05CB6285C78FE0071F607 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		09C05CB7285C78FE0071F607 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		09C05CB9285C78FE0071F607 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"E-Commerce Application Admin/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "iti.E-Commerce-Application-Admin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		09C05CBA285C78FE0071F607 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"E-Commerce Application Admin/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "iti.E-Commerce-Application-Admin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		09C05CBC285C78FE0071F607 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "iti.E-Commerce-Application-AdminTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/E-Commerce Application Admin.app/E-Commerce Application Admin";
+			};
+			name = Debug;
+		};
+		09C05CBD285C78FE0071F607 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "iti.E-Commerce-Application-AdminTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/E-Commerce Application Admin.app/E-Commerce Application Admin";
+			};
+			name = Release;
+		};
+		09C05CBF285C78FE0071F607 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "iti.E-Commerce-Application-AdminUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "E-Commerce Application Admin";
+			};
+			name = Debug;
+		};
+		09C05CC0285C78FE0071F607 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "iti.E-Commerce-Application-AdminUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "E-Commerce Application Admin";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		09C05C8A285C78F80071F607 /* Build configuration list for PBXProject "E-Commerce Application Admin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09C05CB6285C78FE0071F607 /* Debug */,
+				09C05CB7285C78FE0071F607 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09C05CB8285C78FE0071F607 /* Build configuration list for PBXNativeTarget "E-Commerce Application Admin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09C05CB9285C78FE0071F607 /* Debug */,
+				09C05CBA285C78FE0071F607 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09C05CBB285C78FE0071F607 /* Build configuration list for PBXNativeTarget "E-Commerce Application AdminTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09C05CBC285C78FE0071F607 /* Debug */,
+				09C05CBD285C78FE0071F607 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09C05CBE285C78FE0071F607 /* Build configuration list for PBXNativeTarget "E-Commerce Application AdminUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09C05CBF285C78FE0071F607 /* Debug */,
+				09C05CC0285C78FE0071F607 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		09C05C9D285C78FD0071F607 /* E_Commerce_Application_Admin.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				09C05C9E285C78FD0071F607 /* E_Commerce_Application_Admin.xcdatamodel */,
+			);
+			currentVersion = 09C05C9E285C78FD0071F607 /* E_Commerce_Application_Admin.xcdatamodel */;
+			path = E_Commerce_Application_Admin.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 09C05C87285C78F80071F607 /* Project object */;
+}
