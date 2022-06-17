@@ -1,0 +1,6 @@
+framework module Pods_E_Commerce_Application_Admin {
+  umbrella header "Pods-E-Commerce Application Admin-umbrella.h"
+
+  export *
+  module * { export * }
+}
