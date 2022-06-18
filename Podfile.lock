@@ -1,26 +1,20 @@
 PODS:
   - Alamofire (5.0.5)
-  - Kingfisher (5.15.8):
-    - Kingfisher/Core (= 5.15.8)
-  - Kingfisher/Core (5.15.8)
-  - StepperView (1.6.7)
+  - Kingfisher (6.3.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-rc.2)
-  - Kingfisher (~> 5.0)
-  - StepperView (~> 1.6.7)
+  - Kingfisher (~> 6.3.1)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
-    - StepperView
 
 SPEC CHECKSUMS:
   Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
-  Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
-  StepperView: 9b88922ef65712410c0e95c460cd115d33cfd933
+  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
 
-PODFILE CHECKSUM: 3010c877145dab4e8c79d311ef07c1d85e3d8dab
+PODFILE CHECKSUM: b109e155e6560e3870bbe15d06a197f5238097ac
 
 COCOAPODS: 1.11.3

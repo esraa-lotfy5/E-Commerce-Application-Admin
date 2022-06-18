@@ -5,13 +5,9 @@ target 'E-Commerce Application Admin' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-
   # Pods for E-Commerce Application Admin
-
-  
-  pod 'StepperView','~> 1.6.7'
   pod 'Alamofire','~> 5.0.0-rc.2'
-  pod 'Kingfisher', '~> 5.0'
+  pod 'Kingfisher', '~> 6.3.1'
 
   target 'E-Commerce Application AdminTests' do
     inherit! :search_paths

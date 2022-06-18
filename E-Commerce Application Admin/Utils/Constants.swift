@@ -8,8 +8,7 @@
 import Foundation
 struct Constants {
     
-    static let baseUrl = "https://@madalex20220.myshopify.com/admin/api/2022-04/"
-    
+    static let baseUrl = "https://@madalex2022-ios.myshopify.com/admin/api/2022-04/"
     // endpoints
     static let endPointCreateCustomer = "customers.json"
     

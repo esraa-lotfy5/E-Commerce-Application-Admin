@@ -9,7 +9,8 @@ import Foundation
 import Alamofire
 
 enum NetworkRequest{
-    
+    case getProducts
+    case deleteProduct(productID : Int)
 }
 
 extension NetworkRequest : TargetType {
@@ -21,19 +22,28 @@ extension NetworkRequest : TargetType {
     
     var path: String {
         switch self {
-            
+        case .getProducts:
+            return "products.json"
+        case .deleteProduct(let productID):
+            return "products/\(productID).json"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-            
+        case .getProducts:
+            return  .get
+        case .deleteProduct:
+            return .delete
         }
     }
     
     var task: Task {
         switch self {
-
+        case .getProducts:
+            return .requestPlain
+        case .deleteProduct:
+            return .requestPlain
         }
     }
     
@@ -41,7 +51,7 @@ extension NetworkRequest : TargetType {
         switch self {
         default:
             return [
-                "X-Shopify-Access-Token":"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"
+                "X-Shopify-Access-Token":"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"
             ]
         }
     }
