@@ -19,9 +19,11 @@ struct ContentView: View {
 
     var body: some View {
         
-        MainScreen()
+//        MainScreen()
+        Product_Screen()
         
 //        NavigationView {
+        NavigationView {
 //            List {
 //                ForEach(items) { item in
 //                    NavigationLink {
@@ -44,6 +46,8 @@ struct ContentView: View {
 //            }
 //            Text("Select an item")
 //        }
+            
+        }
     }
 
 //    private func addItem() {
