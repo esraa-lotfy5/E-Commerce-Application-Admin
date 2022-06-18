@@ -28,7 +28,7 @@ struct MainScreen: View {
                         .padding()
                 }
                 
-                NavigationLink(destination: Text("CRUD Products")
+                NavigationLink(destination: ProductScreen()
                     .navigationBarBackButtonHidden(true)
                 ) {
                     Text("Products")
