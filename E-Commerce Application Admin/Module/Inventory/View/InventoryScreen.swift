@@ -79,16 +79,19 @@ struct InventoryScreen: View {
             
             
             Text ("To check the quantity of a specific item for a certain location of this shop")
-                .lineLimit(.max)
-                .font(.body)
-                .foregroundColor(Color.gray)
-                .lineLimit(.max)
+            //.lineLimit(.max)
+            .font(.body)
+            //.multilineTextAlignment(.leading)
+            //.lineLimit(.max)
+            .foregroundColor(Color.gray)
+            //.padding()
+            .lineLimit(.max)
                 
             
             
             Spacer()
             Divider()
-            Spacer()
+            //Spacer()
 
         ////////edit inventory item
 //        Button {
@@ -148,13 +151,13 @@ struct InventoryScreen: View {
             }.padding()
         
 
-            Text ("To add the quantity of a specific item for a certain location of this shop,\n this field accept only a number")
-                .lineLimit(.max)
+            Text ("To add the quantity of a specific item for a certain location of this shop,this field adjust the quantity and not increase , this field accept only a number")
+                //.lineLimit(.max)
                 .font(.body)
-                .multilineTextAlignment(.leading)
-                .lineLimit(.max)
+                //.multilineTextAlignment(.leading)
+                //.lineLimit(.max)
                 .foregroundColor(Color.gray)
-                .padding()
+                //.padding()
                 .lineLimit(.max)
             
         
