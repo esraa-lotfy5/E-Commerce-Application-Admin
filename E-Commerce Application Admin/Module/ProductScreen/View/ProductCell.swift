@@ -1,14 +1,15 @@
 //
-//  ProductCell.swift
+//  ProductCell1.swift
 //  E-Commerce Application Admin
 //
-//  Created by Esraa Lotfy  on 18/06/2022.
+//  Created by Esraa Lotfy  on 19/06/2022.
 //
 
 import SwiftUI
 import Kingfisher
 
 struct ProductCell: View {
+    @State private var isActive = false
     var product: Product
     var body: some View {
         HStack{
@@ -35,6 +36,9 @@ struct ProductCell: View {
         }
         }
         //.padding(.bottom, 2)
+        .onTapGesture { self.isActive.toggle() } // activate link on image tap
+                   .background(NavigationLink(destination:  // link in background
+                                              ProductDetailsScreen(product: product), isActive: $isActive) { EmptyView() })
     }
 }
 

@@ -79,13 +79,9 @@ struct MainScreen: View {
                         .cornerRadius(10)
                         .padding()
                 }
-                
             }
-            
-        }
-        
+        }.navigationBarHidden(true)
     }
-    
 }
 
 struct MainScreen_Previews: PreviewProvider {

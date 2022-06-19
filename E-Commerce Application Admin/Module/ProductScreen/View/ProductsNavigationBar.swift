@@ -1,8 +1,8 @@
 //
-//  ProductsNavigationBar.swift
+//  ProductsNavigationBar1.swift
 //  E-Commerce Application Admin
 //
-//  Created by Esraa Lotfy  on 18/06/2022.
+//  Created by Esraa Lotfy  on 19/06/2022.
 //
 
 import SwiftUI
@@ -71,3 +71,4 @@ struct ProductsNavigationBar_Previews: PreviewProvider {
         ProductsNavigationBar()
     }
 }
+
