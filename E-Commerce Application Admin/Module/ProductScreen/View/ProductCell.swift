@@ -35,10 +35,6 @@ struct ProductCell: View {
                 .foregroundColor(.gray)
         }
         }
-        //.padding(.bottom, 2)
-        .onTapGesture { self.isActive.toggle() } // activate link on image tap
-                   .background(NavigationLink(destination:  // link in background
-                                              ProductDetailsScreen(product: product), isActive: $isActive) { EmptyView() })
     }
 }
 

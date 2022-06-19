@@ -20,7 +20,9 @@ struct ProductScreen: View {
             
                 List {
                     ForEach(productsViewModel.products) {product in
+                        NavigationLink(destination: ProductDetailsScreen(product: product)) {
                         ProductCell(product:product)
+                        }
                       }
                         
                       .onDelete { indexSet in

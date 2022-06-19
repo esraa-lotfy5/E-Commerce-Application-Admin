@@ -14,7 +14,7 @@ struct ProductDetailsScreen: View {
     @State private var presentAlert = false
     @State var newSize = ""
     @State var newColor = ""
-//    @State var productID : String = ""
+    @State var editingEnabled = false
     
     @State var isAvailable : Bool = false
     @State var addToCartColor : Color = Color.blue
@@ -34,15 +34,13 @@ struct ProductDetailsScreen: View {
     var productSizes = "OS"
     var productColors = "black"
     
-//    init(product: Product){
-//        self.product = product
-//        self.productID = String(product.id)
-//    }
+    
+    
     var body: some View {
         ScrollView {
         VStack{
             //------------- Start of Naviagtion Bar --------------------
-            ProductDetailsNavigationBar()
+            ProductDetailsNavigationBar(editingEnabled: $editingEnabled)
             //------------ End of Navigation Bar -----------------------
             
             //------------ Start of Product details --------------------
@@ -141,17 +139,18 @@ struct ProductDetailsScreen: View {
                     HStack {
                         Text("Sizes")
                         Spacer(minLength: 100)
-                        Button(action: {
-                            print("Admin want to add new size")
-                            presentAlert = true
-                        }, label: {
-                            Image(systemName: "plus")
-                                .foregroundColor(.white)
-                                .padding(3)
-                                .background(Color.blue)
-                                .cornerRadius(5)
-                        })
-
+                        if(editingEnabled){
+                            Button(action: {
+                                print("Admin want to add new size")
+                                presentAlert = true
+                            }, label: {
+                                Image(systemName: "plus")
+                                    .foregroundColor(.white)
+                                    .padding(3)
+                                    .background(Color.blue)
+                                    .cornerRadius(5)
+                            })
+                        }
                     }.frame(height: 50)
                         .padding(.leading)
                         .padding(.trailing)
@@ -179,20 +178,21 @@ struct ProductDetailsScreen: View {
                 HStack {
                     Text("Colors")
                     Spacer(minLength: 100)
-                    Button(action: {
-                        print("Admin want to add new color")
-                        presentAlert = true
-                    }, label: {
-                        Image(systemName: "plus")
-                            .foregroundColor(.white)
-                            .padding(3)
-                            .background(Color.blue)
-                            .cornerRadius(5)
-                    })
-
+                    if(editingEnabled){
+                        Button(action: {
+                            print("Admin want to add new color")
+                            presentAlert = true
+                        }, label: {
+                            Image(systemName: "plus")
+                                .foregroundColor(.white)
+                                .padding(3)
+                                .background(Color.blue)
+                                .cornerRadius(5)
+                        })
+                    }
                 }.frame(height: 50)
-                        .padding(.leading)
-                        .padding(.trailing)
+                    .padding(.leading)
+                    .padding(.trailing)
                     .background(colorGray)
                 ScrollView{
                     HStack {
@@ -203,52 +203,19 @@ struct ProductDetailsScreen: View {
                                 .padding(3)
                                 .background(Color.blue)
                                 .cornerRadius(5)
+                            }
+                        }.frame(height: 50)
+                            .padding(.leading)
+                            .padding(.trailing)
+                            .background(colorWhite)
                         }
-                    
-                    }.frame(height: 50)
-                        .padding(.leading)
-                        .padding(.trailing)
-                        .background(colorWhite)
-                }
-            }
-//
-//
-//                    ProductDetailsContentWithOptions(title: "Colors", details:  product?.options.last?.values.map { $0 }  ?? ["N/A"], backgroundColor: colorWhite, text: self.$selectedColor)
-                        .padding(.top, -8)
-
+                    }.padding(.top, -8)
                 }.padding()
-
-            }.onAppear{
-
-//                self.productDetailsViewModel.getProductDetails(id: self.productid ?? "0") { (result) in
-
-                self.varients = product?.options.first?.values ?? ["nil"]
-
-
-                    //TODO: Product status (available or not)
-                    if product?.status ==  "active" {
-                        isAvailable =  false
-                    }
-                    else{
-                        isAvailable = true
-                        addToCartColor = Color.gray
-                    }
-                }
-
-//                TODO: - product inventory_quantity
-//                self.productDetailsViewModel.getProductInventoryQuantity(id: self.productid ?? "0") { (result) in
-//                    productQuantity = try! result.get()?.count ?? 0
-//
-//                }
-//
-//
-//            }
-            //------------ End of Product details ----------------------
-        }.navigationBarBackButtonHidden(true)
-                
             }
-            
-        }
+            //------------ End of Product details ----------------------
+        }.navigationBarHidden(true)
+    }
+}
 
 
 struct ProductDetailsScreen_Previews: PreviewProvider {
