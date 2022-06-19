@@ -13,6 +13,9 @@ enum NetworkRequest{
     case registerCustomer(customer: Parameters)
     case getProducts
     case deleteProduct(productID : Int)
+    case getInventoryLevel(inventoryItemID : Int)
+    case postInventoryLevel  (inventoryLevel : Parameters)
+    case updateInventoryLevel  (inventoryLevel : Parameters)
 }
 
 extension NetworkRequest : TargetType {
@@ -31,6 +34,12 @@ extension NetworkRequest : TargetType {
             return "products.json"
         case .deleteProduct(let productID):
             return "products/\(productID).json"
+        case .getInventoryLevel(let inventoryItemId):
+            return "/inventory_levels.json?inventory_item_ids=\(inventoryItemId)"
+        case .postInventoryLevel (let inventoryLevel):
+            return "inventory_levels/set.json"
+        case .updateInventoryLevel( let inventoryLevel):
+            return "inventory_levels/adjust.json"
         }
     }
     
@@ -43,6 +52,12 @@ extension NetworkRequest : TargetType {
             return  .get
         case .deleteProduct:
             return .delete
+        case .getInventoryLevel:
+            return .get
+        case .postInventoryLevel :
+            return .post
+        case .updateInventoryLevel:
+            return .post
         }
     }
     
@@ -55,6 +70,14 @@ extension NetworkRequest : TargetType {
             return .requestPlain
         case .deleteProduct:
             return .requestPlain
+            
+        case .getInventoryLevel:
+            return .requestPlain
+            
+        case .postInventoryLevel (let inventoryLevel):
+            return .requestParameters(parameters: inventoryLevel, encoding: URLEncoding.default)
+        case .updateInventoryLevel(let inventoryLevel ):
+            return .requestParameters(parameters: inventoryLevel, encoding: URLEncoding.default)
         }
     }
     

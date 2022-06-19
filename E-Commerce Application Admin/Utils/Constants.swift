@@ -11,7 +11,7 @@ struct Constants {
     static let baseUrl = "https://@madalex2022-ios.myshopify.com/admin/api/2022-04/"
     // endpoints
     static let endPointCreateCustomer = "customers.json"
-    
+    static let locationId = 66823782573  //for post inventory
 }
 
 struct ErrorMessages {

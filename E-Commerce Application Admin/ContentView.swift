@@ -19,7 +19,8 @@ struct ContentView: View {
 
     var body: some View {
         
-        MainScreen()
+       // MainScreen()
+        InventoryScreen()
         //ProductScreen()
         
 //        NavigationView {
