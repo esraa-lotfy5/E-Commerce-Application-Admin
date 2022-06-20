@@ -55,7 +55,7 @@ struct MainScreen: View {
                         .padding()
                 }
                 
-                NavigationLink(destination: Text("CRUD Coupons")
+                NavigationLink(destination: DiscountCodeScreen()
                     .navigationBarBackButtonHidden(true)
                 ) {
                     Text("Coupons")

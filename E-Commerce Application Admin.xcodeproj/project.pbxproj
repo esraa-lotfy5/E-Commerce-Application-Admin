@@ -28,6 +28,13 @@
 		41DEA672285F42DC004543F0 /* InventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DEA671285F42DC004543F0 /* InventoryViewModel.swift */; };
 		41DEA674285F430B004543F0 /* InventoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DEA673285F430B004543F0 /* InventoryScreen.swift */; };
 		41DEA676285F4336004543F0 /* InventoryLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DEA675285F4336004543F0 /* InventoryLevels.swift */; };
+		41DEA67B285FE094004543F0 /* DiscountCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DEA67A285FE094004543F0 /* DiscountCodeViewModel.swift */; };
+		41DEA67D285FE0E1004543F0 /* DiscountCodeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DEA67C285FE0E1004543F0 /* DiscountCodeScreen.swift */; };
+		41DEA67F285FE126004543F0 /* PriceRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DEA67E285FE126004543F0 /* PriceRule.swift */; };
+		41DEA681285FE181004543F0 /* DiscountCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DEA680285FE181004543F0 /* DiscountCode.swift */; };
+		41DEA6832860E93B004543F0 /* AddPriceRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DEA6822860E93B004543F0 /* AddPriceRule.swift */; };
+		41DEA6852861160E004543F0 /* PriceRuleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DEA6842861160D004543F0 /* PriceRuleItem.swift */; };
+		41DEA68728612C5D004543F0 /* DiscountCodeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DEA68628612C5D004543F0 /* DiscountCodeList.swift */; };
 		BC59EF29285CDFE90048AE21 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59EF28285CDFE90048AE21 /* MainScreen.swift */; };
 		BC59EF30285CE18E0048AE21 /* CreateCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59EF2F285CE18E0048AE21 /* CreateCustomerView.swift */; };
 		BC59EF32285CE3F10048AE21 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59EF31285CE3F10048AE21 /* AuthViewModel.swift */; };
@@ -77,6 +84,13 @@
 		41DEA671285F42DC004543F0 /* InventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewModel.swift; sourceTree = "<group>"; };
 		41DEA673285F430B004543F0 /* InventoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryScreen.swift; sourceTree = "<group>"; };
 		41DEA675285F4336004543F0 /* InventoryLevels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryLevels.swift; sourceTree = "<group>"; };
+		41DEA67A285FE094004543F0 /* DiscountCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodeViewModel.swift; sourceTree = "<group>"; };
+		41DEA67C285FE0E1004543F0 /* DiscountCodeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodeScreen.swift; sourceTree = "<group>"; };
+		41DEA67E285FE126004543F0 /* PriceRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRule.swift; sourceTree = "<group>"; };
+		41DEA680285FE181004543F0 /* DiscountCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCode.swift; sourceTree = "<group>"; };
+		41DEA6822860E93B004543F0 /* AddPriceRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPriceRule.swift; sourceTree = "<group>"; };
+		41DEA6842861160D004543F0 /* PriceRuleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRuleItem.swift; sourceTree = "<group>"; };
+		41DEA68628612C5D004543F0 /* DiscountCodeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodeList.swift; sourceTree = "<group>"; };
 		709EB86679631A036726A575 /* Pods-E-Commerce Application Admin-E-Commerce Application AdminUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-Commerce Application Admin-E-Commerce Application AdminUITests.release.xcconfig"; path = "Target Support Files/Pods-E-Commerce Application Admin-E-Commerce Application AdminUITests/Pods-E-Commerce Application Admin-E-Commerce Application AdminUITests.release.xcconfig"; sourceTree = "<group>"; };
 		76A6C6B82A0884127A104E5A /* Pods_E_Commerce_Application_Admin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_E_Commerce_Application_Admin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87B3E112B2FE9A4DC5C22A1 /* Pods-E-Commerce Application Admin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-Commerce Application Admin.release.xcconfig"; path = "Target Support Files/Pods-E-Commerce Application Admin/Pods-E-Commerce Application Admin.release.xcconfig"; sourceTree = "<group>"; };
@@ -289,9 +303,38 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		41DEA677285FE056004543F0 /* DiscountCode */ = {
+			isa = PBXGroup;
+			children = (
+				41DEA679285FE06E004543F0 /* View */,
+				41DEA678285FE065004543F0 /* ViewModel */,
+			);
+			path = DiscountCode;
+			sourceTree = "<group>";
+		};
+		41DEA678285FE065004543F0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				41DEA67A285FE094004543F0 /* DiscountCodeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		41DEA679285FE06E004543F0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				41DEA67C285FE0E1004543F0 /* DiscountCodeScreen.swift */,
+				41DEA6822860E93B004543F0 /* AddPriceRule.swift */,
+				41DEA6842861160D004543F0 /* PriceRuleItem.swift */,
+				41DEA68628612C5D004543F0 /* DiscountCodeList.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BC59EF26285CDFC30048AE21 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				41DEA677285FE056004543F0 /* DiscountCode */,
 				41DEA66E285F4284004543F0 /* Inventory */,
 				095BD41D285E5C99005EDAA5 /* Product */,
 				BC59EF2A285CE1560048AE21 /* CreateCustomer */,
@@ -339,6 +382,8 @@
 				095BD41F285E5CA4005EDAA5 /* Product.swift */,
 				BC59EF34285CE4350048AE21 /* Customer.swift */,
 				41DEA675285F4336004543F0 /* InventoryLevels.swift */,
+				41DEA67E285FE126004543F0 /* PriceRule.swift */,
+				41DEA680285FE181004543F0 /* DiscountCode.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -588,11 +633,18 @@
 				BC59EF29285CDFE90048AE21 /* MainScreen.swift in Sources */,
 				09C05CCF285C832B0071F607 /* NetworkRequest.swift in Sources */,
 				09C05C95285C78F80071F607 /* ContentView.swift in Sources */,
+				41DEA6852861160E004543F0 /* PriceRuleItem.swift in Sources */,
 				09C05CCD285C83180071F607 /* NetworkAPI.swift in Sources */,
+				41DEA6832860E93B004543F0 /* AddPriceRule.swift in Sources */,
+				41DEA681285FE181004543F0 /* DiscountCode.swift in Sources */,
 				09C05C93285C78F80071F607 /* E_Commerce_Application_AdminApp.swift in Sources */,
 				BC59EF32285CE3F10048AE21 /* AuthViewModel.swift in Sources */,
+				41DEA67F285FE126004543F0 /* PriceRule.swift in Sources */,
 				BC59EF35285CE4350048AE21 /* Customer.swift in Sources */,
+				41DEA67D285FE0E1004543F0 /* DiscountCodeScreen.swift in Sources */,
+				41DEA67B285FE094004543F0 /* DiscountCodeViewModel.swift in Sources */,
 				41DEA672285F42DC004543F0 /* InventoryViewModel.swift in Sources */,
+				41DEA68728612C5D004543F0 /* DiscountCodeList.swift in Sources */,
 				41DEA676285F4336004543F0 /* InventoryLevels.swift in Sources */,
 				09C05C9F285C78FD0071F607 /* E_Commerce_Application_Admin.xcdatamodeld in Sources */,
 				09C05CC9285C82E80071F607 /* BaseAPI.swift in Sources */,

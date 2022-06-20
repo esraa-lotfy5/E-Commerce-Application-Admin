@@ -19,8 +19,9 @@ struct ContentView: View {
 
     var body: some View {
         
-       // MainScreen()
-        InventoryScreen()
+       MainScreen()
+       // InventoryScreen()
+       // AddPriceRule()
         //ProductScreen()
         
 //        NavigationView {

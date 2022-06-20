@@ -16,7 +16,12 @@ protocol NetworkAPIProtocol {
     func getInventoryLevel(inventoryItemId : Int , completion: @escaping(Result<InventoryLevels?, NSError>) -> Void)
     func postInventoryLevel (InventoryItem : Parameters ,completion : @escaping (Result<InventoryLevel? , NSError>)-> Void)
     func updateInventoryLevel (InventoryItem : Parameters ,completion : @escaping (Result<InventoryLevel? , NSError>)-> Void)
-    
+    func getPriceRule(completion : @escaping (Result<PriceRules? , NSError>)-> Void)
+    func postPriceRule(priceRule: Parameters, completion: @escaping (Result<PriceRule?, NSError>) -> Void)
+    func getDiscountCode (discountId : Int , completion : @escaping (Result<DiscountCodes? , NSError>) -> Void)
+    func postDiscountCode (discountCode : Parameters, discountId : Int ,completion : @escaping (Result<DiscountCode? , NSError>)-> Void)
+    func deletePriceRule (priceRuleId : Int , completion : @escaping (Result<PriceRule? , NSError>) -> Void)
+    func deleteDiscountCode (priceRuleId : Int , discountCodeId : Int , completion : @escaping (Result<DiscountCode? , NSError>) -> Void)
 }
 
 class NetworkAPI: BaseAPI<NetworkRequest>, NetworkAPIProtocol {
@@ -56,4 +61,40 @@ class NetworkAPI: BaseAPI<NetworkRequest>, NetworkAPIProtocol {
         }
     }
     
+    
+    func getPriceRule(completion: @escaping (Result<PriceRules?, NSError>) -> Void) {
+        self.fetchData(target: .getPriceRule, responseClass: PriceRules.self) { (result) in
+            completion(result)
+        }
+    }
+    
+    func postPriceRule(priceRule: Parameters, completion: @escaping (Result<PriceRule?, NSError>) -> Void) {
+        self.writeData(target: .postPriceRule(priceRule: priceRule), responseClass: PriceRule.self) { (result) in
+            completion(result)
+        }
+    }
+    
+    func getDiscountCode(discountId: Int, completion: @escaping (Result<DiscountCodes?, NSError>) -> Void) {
+        self.fetchData(target: .getDiscountCode(discountId: discountId), responseClass: DiscountCodes.self) { (result) in
+            completion(result)
+        }
+    }
+    
+    func postDiscountCode (discountCode : Parameters, discountId : Int ,completion : @escaping (Result<DiscountCode? , NSError>)-> Void){
+        self.writeData(target: .postDiscountCode(dicountCode: discountCode, discountId: discountId), responseClass: DiscountCode.self) { (result) in
+            completion(result)
+        }
+    }
+    
+    func deletePriceRule (priceRuleId : Int , completion : @escaping (Result<PriceRule? , NSError>) -> Void){
+        self.writeData(target: .deletePriceRule(priceRuleId: priceRuleId), responseClass: PriceRule.self) { (result) in
+            completion(result)
+        }
+    }
+    
+    func deleteDiscountCode (priceRuleId : Int , discountCodeId : Int , completion : @escaping (Result<DiscountCode? , NSError>) -> Void){
+        self.writeData(target: .deleteDiscountCode(priceRuleId: priceRuleId, discountCodeId: discountCodeId), responseClass: DiscountCode.self) { (result) in
+            completion(result)
+        }
+    }
 }
