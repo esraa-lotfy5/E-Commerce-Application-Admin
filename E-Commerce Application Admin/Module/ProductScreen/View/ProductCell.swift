@@ -13,25 +13,25 @@ struct ProductCell: View {
     var product: Product
     var body: some View {
         HStack{
-        KFImage(URL(string: product.image.src))
+            KFImage(URL(string: product.image?.src ?? "" ))
             .resizable()
             .frame(width: 100, height: 140)
             .padding(.trailing, 8)
             
         //Spacer().frame(width:8)
         VStack(alignment: .leading){
-            Text(product.title.split(separator: "|")[1].trimmingCharacters(in: .whitespacesAndNewlines))
-                .font(.headline)
-                .fontWeight(.semibold)
-            
+//            Text(product.title?.split(separator: "|")[1].trimmingCharacters(in: .whitespacesAndNewlines) ?? "nil")
+//                .font(.headline)
+//                .fontWeight(.semibold)
+//            
             Spacer().frame(height:8)
             
-            Text(product.title.split(separator: "|")[0])
+            Text(product.title?.split(separator: "|")[0] ?? "nil")
                 
             
             Spacer().frame(height:16)
             
-            Text("price: \(product.variants[0].price)$")
+            Text("price: \(product.variants?[0].price ?? "nil")$")
                 .foregroundColor(.gray)
         }
         }

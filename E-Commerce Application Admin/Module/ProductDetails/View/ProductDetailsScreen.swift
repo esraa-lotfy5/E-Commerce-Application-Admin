@@ -50,21 +50,21 @@ struct ProductDetailsScreen: View {
                 PageView(pages: [
                     FeatureCard(image:
                                     KFImage.url(URL(string:
-                                                        product?.images[0].src ?? "" ))
+                                                        product?.images?[0].src ?? "" ))
                                         .placeholder { Image("default") }
                         .resizable()
                         .onSuccess { r in print("done") }
                         .onFailure { r in print("failure") }
                         .loadImmediately()),
                     
-                    FeatureCard(image:  KFImage.url(URL(string:    product?.images[1].src ?? ""))
+                    FeatureCard(image:  KFImage.url(URL(string:    product?.images![1].src ?? ""))
                         .placeholder { Image("default") }
                         .resizable()
                         .onSuccess { r in print("done") }
                         .onFailure { r in print("failure") }
                         .loadImmediately()),
                     
-                    FeatureCard(image: KFImage.url(URL(string:    product?.images[2].src ?? ""))
+                    FeatureCard(image: KFImage.url(URL(string:    product?.images?[2].src ?? ""))
                         .placeholder { Image("default") }
                         .resizable()
                         .onSuccess { r in print("done") }
@@ -76,9 +76,9 @@ struct ProductDetailsScreen: View {
                 VStack(alignment: .leading) {
                     //#TODO: TITLE AND PRICE
                     HStack {
-                        Text(product?.title.split(separator: "|")[1] ?? "nothing").bold() // product.title ??
+                        Text(product?.title?.split(separator: "|")[1] ?? "nothing").bold() // product.title ??
                         Spacer()
-                        Text("$\(product?.variants[0].price ?? "" )").foregroundColor(.blue)
+                        Text("$\(product?.variants?[0].price ?? "" )").foregroundColor(.blue)
                     }
 
 
@@ -157,7 +157,7 @@ struct ProductDetailsScreen: View {
                         .background(colorGray)
                     ScrollView{
                         HStack {
-                            ForEach(product?.options.first?.values .map { $0 } ?? ["N/A"] , id: \.self){ item  in
+                            ForEach(product?.options?.first?.values .map { $0 } ?? ["N/A"] , id: \.self){ item  in
                                 Text(item)
                                     .foregroundColor( .white)
                                     .fontWeight(.semibold)
@@ -196,7 +196,7 @@ struct ProductDetailsScreen: View {
                     .background(colorGray)
                 ScrollView{
                     HStack {
-                        ForEach(product?.options.last?.values .map { $0 } ?? ["N/A"] , id: \.self){ item  in
+                        ForEach(product?.options?.last?.values .map { $0 } ?? ["N/A"] , id: \.self){ item  in
                             Text(item)
                                 .foregroundColor( .white)
                                 .fontWeight(.semibold)

@@ -39,6 +39,6 @@ class ProductsViewModel : ObservableObject{
     
     func deleteProduct(product: Product){
         print("Product name: \(product.title)")
-        api.deleteProduct(productID: product.id)
+        api.deleteProduct(productID: product.id ?? 0)
     }
 }

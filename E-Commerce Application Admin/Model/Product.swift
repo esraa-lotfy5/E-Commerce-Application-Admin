@@ -17,17 +17,17 @@ class Products: Codable, Identifiable {
 
 // MARK: - Product
 class Product: Codable,Identifiable {
-    let id: Int
-    let title, bodyHTML, vendor, productType: String
-    let createdAt: String
-    let handle: String
-    let updatedAt, publishedAt: String
+    let id: Int?
+    let title, bodyHTML, vendor, productType: String?
+    let createdAt: String?
+    let handle: String?
+    let updatedAt, publishedAt: String?
     //let templateSuffix: JSONNull?
-    let status, publishedScope, tags, adminGraphqlAPIID: String
-    let variants: [Variant]
-    let options: [Option]
-    let images: [ProductImage]
-    let image: ProductImage
+    let status, publishedScope, tags, adminGraphqlAPIID: String?
+    let variants: [Variant]?
+    let options: [Option]?
+    let images: [ProductImage]?
+    let image: ProductImage?
 
     enum CodingKeys: String, CodingKey {
         case id, title
@@ -108,10 +108,10 @@ class ProductImage: Codable {
 
 // MARK: - Option
 class Option: Identifiable,Codable {
-    let id, productID: Int
-    let name: String
-    let position: Int
-    let values: [String]
+    let id, productID: Int?
+    let name: String?
+    let position: Int?
+    let values: [String]?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -130,23 +130,23 @@ class Option: Identifiable,Codable {
 
 // MARK: - Variant
 class Variant: Identifiable,Codable {
-    let id, productID: Int
-    let title, price, sku: String
-    let position: Int
-    let inventoryPolicy: String
+    let id, productID: Int?
+    let title, price, sku: String?
+    let position: Int?
+    let inventoryPolicy: String?
 //    let compareAtPrice: JSONNull?
-    let fulfillmentService, inventoryManagement, option1, option2: String
+    let fulfillmentService, inventoryManagement, option1, option2: String?
 //    let option3: JSONNull?
-    let createdAt, updatedAt: String
-    let taxable: Bool
+    let createdAt, updatedAt: String?
+    let taxable: Bool?
 //    let barcode: JSONNull?
-    let grams: Int
+    let grams: Int?
 //    let imageID: JSONNull?
-    let weight: Int
-    let weightUnit: String
-    let inventoryItemID, inventoryQuantity, oldInventoryQuantity: Int
-    let requiresShipping: Bool
-    let adminGraphqlAPIID: String
+    let weight: Int?
+    let weightUnit: String?
+    let inventoryItemID, inventoryQuantity, oldInventoryQuantity: Int?
+    let requiresShipping: Bool?
+    let adminGraphqlAPIID: String?
 
     enum CodingKeys: String, CodingKey {
         case id
