@@ -13,7 +13,9 @@ struct PriceRuleItem: View {
     @State var priceRuleItemId: Int = 0
     @State var discountCodeTitle : String = ""
     @State var showAlert : Bool = false
-    @State var isActive : Bool = false
+    @State var isActiveItem : Bool = false
+    @State var discountArrInItem : [DiscountCode] = []
+
 
     
     var body: some View {
@@ -74,8 +76,8 @@ struct PriceRuleItem: View {
             //retreive all discount code button
             Button {
                 print("retreive button is pressed")
-                isActive.toggle()
-                viewModelDiscount.getDiscountCode(priceRuleId: priceRuleItemId)
+                isActiveItem.toggle()
+               // viewModelDiscount.getDiscountCode(priceRuleId: priceRuleItemId)
                 
                 
             } label: {
@@ -88,7 +90,7 @@ struct PriceRuleItem: View {
                     .cornerRadius(10)
                     //.padding()
             }.background(NavigationLink(destination:  // link in background
-                                        DiscountCodeList( priceRuleId: priceRuleItemId)  , isActive: $isActive) { EmptyView() })
+                                        DiscountCodeList( priceRuleId: priceRuleItemId , discountArrInDetails : discountArrInItem)  , isActive: $isActiveItem) { EmptyView() })
             
             
             
@@ -127,7 +129,21 @@ struct PriceRuleItem: View {
             
             
             
-        }.navigationBarBackButtonHidden(true)
+        }.onAppear(perform: {
+            viewModelDiscount.getDiscountCode(priceRuleId: priceRuleItemId)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                if viewModelDiscount.discountArr.isEmpty {
+                    viewModelDiscount.getDiscountCode(priceRuleId: priceRuleItemId)
+                }else{
+                    print("inside price rule item \(viewModelDiscount.discountArr)")
+                    discountArrInItem = viewModelDiscount.discountArr
+                    print("ARRAY IN ITEM == \(discountArrInItem)")
+                }
+            }
+            
+        })
+        .navigationBarBackButtonHidden(true)
+            
         
        
     }

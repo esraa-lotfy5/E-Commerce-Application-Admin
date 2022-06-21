@@ -12,7 +12,7 @@ struct DiscountCodeList: View {
     @State var showAlert : Bool = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var priceRuleId : Int = 0
-    
+    @State var discountArrInDetails : [DiscountCode] = []
 
     var body: some View {
         
@@ -42,11 +42,10 @@ struct DiscountCodeList: View {
         }
         //header
         
-            
         //start of the list
         List{
         
-            ForEach(viewModelDiscount.discountArr, id: \.self) { row in
+            ForEach(discountArrInDetails, id: \.self) { row in
 
                 Section{
 
@@ -70,11 +69,13 @@ struct DiscountCodeList: View {
                     
                }
                 .alert("you want to delete this item", isPresented: $showAlert) {
+                    
+                    Button ("Cancel" , role: .destructive){
+                        print("cancel is pressed")
+                    }
                    Button("OK", role: .cancel) {
                        print("ok in alert is pressed")
                        viewModelDiscount.deleteDiscountCode(priceRuleId: row.priceRuleID, discountCodeId: row.id)
-                       
-                       
                    }
                }
 
@@ -86,10 +87,10 @@ struct DiscountCodeList: View {
          }
         //end of the list
         }.navigationBarBackButtonHidden(true)
-            .onAppear {
-                viewModelDiscount.getDiscountCode(priceRuleId: priceRuleId )
-                print("\n FROM INSIDE VIEW IT SELF \(viewModelDiscount.discountArr)")
-            }
+//            .onAppear {
+//                viewModelDiscount.getDiscountCode(priceRuleId: priceRuleId )
+//                print("\n FROM INSIDE VIEW IT SELF \(viewModelDiscount.discountArr)")
+//            }
     }
 }
 
