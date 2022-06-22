@@ -27,9 +27,10 @@ struct MainScreen: View {
                         .cornerRadius(10)
                         .padding()
                 }
-                
-                NavigationLink(destination: ProductScreen()
+                NavigationLink(destination: Text("CRUD Product")
                     .navigationBarBackButtonHidden(true)
+//                NavigationLink(destination: ProductScreen()
+//                    .navigationBarBackButtonHidden(true)
                 ) {
                     Text("Products")
                         .bold()
@@ -54,7 +55,7 @@ struct MainScreen: View {
                         .padding()
                 }
                 
-                NavigationLink(destination: Text("CRUD Coupons")
+                NavigationLink(destination: DiscountCodeScreen()
                     .navigationBarBackButtonHidden(true)
                 ) {
                     Text("Coupons")

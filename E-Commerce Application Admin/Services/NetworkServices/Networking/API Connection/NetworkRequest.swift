@@ -13,6 +13,15 @@ enum NetworkRequest{
     case registerCustomer(customer: Parameters)
     case getProducts
     case deleteProduct(productID : Int)
+    case getInventoryLevel(inventoryItemID : Int)
+    case postInventoryLevel  (inventoryLevel : Parameters)
+    case updateInventoryLevel  (inventoryLevel : Parameters)
+    case getPriceRule
+    case postPriceRule(priceRule : Parameters)
+    case getDiscountCode (discountId : Int)
+    case postDiscountCode (dicountCode: Parameters,discountId: Int)
+    case deletePriceRule (priceRuleId : Int)
+    case deleteDiscountCode (priceRuleId : Int , discountCodeId : Int)
 }
 
 extension NetworkRequest : TargetType {
@@ -31,6 +40,26 @@ extension NetworkRequest : TargetType {
             return "products.json"
         case .deleteProduct(let productID):
             return "products/\(productID).json"
+        case .getInventoryLevel(let inventoryItemId):
+            return "/inventory_levels.json?inventory_item_ids=\(inventoryItemId)"
+        case .postInventoryLevel (let inventoryLevel):
+            return "inventory_levels/set.json"
+        case .updateInventoryLevel( let inventoryLevel):
+            return "inventory_levels/adjust.json"
+        case .getPriceRule:
+            return "price_rules.json"
+        case .postPriceRule (let priceRule):
+            return "price_rules.json"
+        case .getDiscountCode(discountId: let discountCode):
+            return "price_rules/\(discountCode)/discount_codes.json"
+        case .postDiscountCode (_ , let discountId):
+            return "price_rules/\(discountId)/discount_codes.json"
+            
+        case .deletePriceRule(let priceRuleId):
+            return "price_rules/\(priceRuleId).json"
+            
+        case .deleteDiscountCode(let priceRuleId, let discountCodeId):
+            return "/price_rules/\(priceRuleId)/discount_codes/\(discountCodeId).json"
         }
     }
     
@@ -43,6 +72,30 @@ extension NetworkRequest : TargetType {
             return  .get
         case .deleteProduct:
             return .delete
+        case .getInventoryLevel:
+            return .get
+        case .postInventoryLevel :
+            return .post
+        case .updateInventoryLevel:
+            return .post
+            
+        case .getPriceRule:
+            return .get
+            
+        case .postPriceRule:
+            return .post
+            
+        case .getDiscountCode(discountId: _):
+            return .get
+            
+        case .postDiscountCode:
+            return .post
+            
+        case .deletePriceRule:
+            return .delete
+            
+        case .deleteDiscountCode:
+            return .delete
         }
     }
     
@@ -54,6 +107,32 @@ extension NetworkRequest : TargetType {
         case .getProducts:
             return .requestPlain
         case .deleteProduct:
+            return .requestPlain
+            
+        case .getInventoryLevel:
+            return .requestPlain
+            
+        case .postInventoryLevel (let inventoryLevel):
+            return .requestParameters(parameters: inventoryLevel, encoding: URLEncoding.default)
+        case .updateInventoryLevel(let inventoryLevel ):
+            return .requestParameters(parameters: inventoryLevel, encoding: URLEncoding.default)
+        
+        case .getPriceRule:
+            return .requestPlain
+            
+        case .postPriceRule (let priceRule):
+            return .requestParameters(parameters: priceRule, encoding: URLEncoding.default)
+         
+        case .getDiscountCode(discountId: _):
+            return .requestPlain
+
+        case .postDiscountCode(let parameters , _):
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+            
+        case .deletePriceRule:
+            return .requestPlain
+            
+        case .deleteDiscountCode:
             return .requestPlain
         }
     }
