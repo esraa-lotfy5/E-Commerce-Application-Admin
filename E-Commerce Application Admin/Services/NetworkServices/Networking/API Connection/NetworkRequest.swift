@@ -22,6 +22,8 @@ enum NetworkRequest{
     case postDiscountCode (dicountCode: Parameters,discountId: Int)
     case deletePriceRule (priceRuleId : Int)
     case deleteDiscountCode (priceRuleId : Int , discountCodeId : Int)
+    case createProduct(param: Parameters)
+    case createVarients(productID : Int,param: Parameters)
 }
 
 extension NetworkRequest : TargetType {
@@ -60,6 +62,10 @@ extension NetworkRequest : TargetType {
             
         case .deleteDiscountCode(let priceRuleId, let discountCodeId):
             return "/price_rules/\(priceRuleId)/discount_codes/\(discountCodeId).json"
+        case .createProduct:
+            return "products.json"
+        case .createVarients(let productID):
+            return "variants/\(productID).json"
         }
     }
     
@@ -96,6 +102,10 @@ extension NetworkRequest : TargetType {
             
         case .deleteDiscountCode:
             return .delete
+        case .createProduct:
+            return .post
+        case .createVarients:
+            return .put
         }
     }
     
@@ -134,6 +144,10 @@ extension NetworkRequest : TargetType {
             
         case .deleteDiscountCode:
             return .requestPlain
+        case .createProduct(let param):
+            return .requestParameters(parameters: param, encoding: URLEncoding.default)
+        case .createVarients(_ ,let param):
+            return .requestParameters(parameters: param, encoding: URLEncoding.default)
         }
     }
     

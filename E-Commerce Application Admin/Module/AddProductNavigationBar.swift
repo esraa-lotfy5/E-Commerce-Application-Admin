@@ -1,13 +1,13 @@
 //
-//  ProductsNavigationBar1.swift
+//  AddProductNavigationBar.swift
 //  E-Commerce Application Admin
 //
-//  Created by Esraa Lotfy  on 19/06/2022.
+//  Created by Esraa Lotfy  on 21/06/2022.
 //
 
 import SwiftUI
 
-struct ProductsNavigationBar: View {
+struct AddProductNavigationBar: View {
     @State private var isActive = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
@@ -35,7 +35,7 @@ struct ProductsNavigationBar: View {
             
                Spacer()
             //  ------------- start of header text --------------------------
-               Text("Products")
+               Text("New Product")
                    .fontWeight(.bold)
             //  ------------ end of header text --------------------
                Spacer()
@@ -44,14 +44,14 @@ struct ProductsNavigationBar: View {
             //  --------- start of add icon -----------------
         
                 HStack {
-                    Image(systemName: "plus")
+                    Text("Save")
                     .foregroundColor(.black)
                 }
                 .onTapGesture {self.isActive.toggle() }
                     
-                .background(NavigationLink(destination: AddProductScreen(), isActive: $isActive) { EmptyView() })
+//                .background(NavigationLink(destination: WishList(product: [Product3(name: "test", price: 90.0, size: "S", desc: "desc")]), isActive: $isActive) { EmptyView() })
                 .padding(15)
-                .frame(width: 50, height: 40)
+                .frame(width: 70, height: 40)
                 .background(Color.white)
                 .cornerRadius(10)
                 .shadow(color: Color.gray, radius: 3, x: 0, y: 3)
@@ -62,13 +62,12 @@ struct ProductsNavigationBar: View {
                .padding(.top, 16)
 
         
-        }.navigationBarHidden(true)
+        }
     }
 }
 
-struct ProductsNavigationBar_Previews: PreviewProvider {
+struct AddProductNavigationBar_Previews: PreviewProvider {
     static var previews: some View {
-        ProductsNavigationBar()
+        AddProductNavigationBar()
     }
 }
-

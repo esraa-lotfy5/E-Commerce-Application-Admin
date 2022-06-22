@@ -32,9 +32,13 @@ struct ProductScreen: View {
                       }
                 }
                 
-            }.navigationBarHidden(true)
-        
+            }.onAppear(perform: {
+                print("we are on Appear")
+                self.productsViewModel.getProducts()
+            })
+            .navigationBarHidden(true)
     }
+    
 }
 
 struct ProductScreen_Previews: PreviewProvider {

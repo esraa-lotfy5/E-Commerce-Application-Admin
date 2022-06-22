@@ -12,11 +12,14 @@ class ProductsViewModel : ObservableObject{
     @Published var products : [Product] = []
     var api :NetworkAPIProtocol = NetworkAPI()
     
-    init(){
-        getProducts()
-    }
+//    init() {
+//        DispatchQueue.main.async {
+//            self.getProducts()
+//        }
+//
+//    }
     
-    func getProducts(){
+    func getProducts() -> Void{
         api.getProducts(completion: { (result) in
             switch result {
             case .success(let response):
@@ -38,7 +41,8 @@ class ProductsViewModel : ObservableObject{
     }
     
     func deleteProduct(product: Product){
-        print("Product name: \(product.title)")
+        print("deleted Product name: \(product.title)")
         api.deleteProduct(productID: product.id ?? 0)
+        getProducts()
     }
 }
