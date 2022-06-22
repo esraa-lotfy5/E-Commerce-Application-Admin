@@ -13,7 +13,8 @@ protocol NetworkAPIProtocol {
     func registerCustomer(customer: Parameters, completion: @escaping(Result<[String: Any]?, NSError>) -> Void)
     func getProducts(completion: @escaping (Result<Products?, NSError>) -> Void)
     func deleteProduct(productID : Int)
-    
+    func createProduct(product: Parameters, completion: @escaping(Result<Product?, NSError>) -> Void)
+    func updateProductVarient(productID: Int ,varient: Parameters, completion: @escaping(Result<Product?, NSError>) -> Void)
 }
 
 class NetworkAPI: BaseAPI<NetworkRequest>, NetworkAPIProtocol {
@@ -32,6 +33,17 @@ class NetworkAPI: BaseAPI<NetworkRequest>, NetworkAPIProtocol {
     func deleteProduct(productID : Int){
         self.fetchData(target: .deleteProduct(productID: productID), responseClass: Products.self) { (result) in
             print(result)
+        }
+    }
+    
+    func createProduct(product: Parameters, completion: @escaping(Result<Product?, NSError>) -> Void){
+        self.writeData(target: .createProduct(param: product), responseClass: Product.self) { (result) in
+            completion(result)
+        }
+    }
+    func updateProductVarient(productID: Int ,varient: Parameters, completion: @escaping(Result<Product?, NSError>) -> Void){
+        self.writeData(target: .createVarients(productID: productID, param: varient), responseClass: Product.self) { (result) in
+            completion(result)
         }
     }
 }

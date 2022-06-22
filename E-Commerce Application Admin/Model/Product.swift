@@ -17,17 +17,17 @@ class Products: Codable, Identifiable {
 
 // MARK: - Product
 class Product: Codable,Identifiable {
-    let id: Int?
-    let title, bodyHTML, vendor, productType: String?
-    let createdAt: String?
-    let handle: String?
-    let updatedAt, publishedAt: String?
+    var id: Int?
+    var title, bodyHTML, vendor, productType: String?
+    var createdAt: String?
+    var handle: String?
+    var updatedAt, publishedAt: String?
     //let templateSuffix: JSONNull?
-    let status, publishedScope, tags, adminGraphqlAPIID: String?
-    let variants: [Variant]?
-    let options: [Option]?
-    let images: [ProductImage]?
-    let image: ProductImage?
+    var status, publishedScope, tags, adminGraphqlAPIID: String?
+    var variants: [Variant]?
+    var options: [Option]?
+    var images: [ProductImage]?
+    var image: ProductImage?
 
     enum CodingKeys: String, CodingKey {
         case id, title
@@ -46,8 +46,10 @@ class Product: Codable,Identifiable {
         case variants, options, images, image
     }
     //, templateSuffix: JSONNull?
+    init(){}
 
-    init(id: Int, title: String, bodyHTML: String, vendor: String, productType: String, createdAt: String, handle: String, updatedAt: String, publishedAt: String, status: String, publishedScope: String, tags: String, adminGraphqlAPIID: String, variants: [Variant], options: [Option], images: [ProductImage], image: ProductImage) {
+    convenience init(id: Int, title: String, bodyHTML: String, vendor: String, productType: String, createdAt: String, handle: String, updatedAt: String, publishedAt: String, status: String, publishedScope: String, tags: String, adminGraphqlAPIID: String, variants: [Variant], options: [Option], images: [ProductImage], image: ProductImage) {
+        self.init()
         self.id = id
         self.title = title
         self.bodyHTML = bodyHTML
@@ -71,13 +73,13 @@ class Product: Codable,Identifiable {
 
 // MARK: - ProductImage
 class ProductImage: Codable {
-    let id, productID, position: Int
-    let createdAt, updatedAt: String
+    var id, productID, position: Int
+    var createdAt, updatedAt: String
 //    let alt: JSONNull?
-    let width, height: Int
-    let src: String
-    let variantIDS: [JSONAny]
-    let adminGraphqlAPIID: String
+    var width, height: Int
+    var src: String
+    var variantIDS: [JSONAny]
+    var adminGraphqlAPIID: String
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -90,6 +92,9 @@ class ProductImage: Codable {
         case variantIDS = "variant_ids"
         case adminGraphqlAPIID = "admin_graphql_api_id"
     }
+    
+    
+    //init(){}
 // alt: JSONNull?,
     init(id: Int, productID: Int, position: Int, createdAt: String, updatedAt: String, width: Int, height: Int, src: String, variantIDS: [JSONAny], adminGraphqlAPIID: String) {
         self.id = id
@@ -108,10 +113,10 @@ class ProductImage: Codable {
 
 // MARK: - Option
 class Option: Identifiable,Codable {
-    let id, productID: Int?
-    let name: String?
-    let position: Int?
-    let values: [String]?
+    var id, productID: Int?
+    var name: String?
+    var position: Int?
+    var values: [String]?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -119,7 +124,10 @@ class Option: Identifiable,Codable {
         case name, position, values
     }
 
-    init(id: Int, productID: Int, name: String, position: Int, values: [String]) {
+    init(){}
+    
+    convenience init(id: Int, productID: Int, name: String, position: Int, values: [String]) {
+        self.init()
         self.id = id
         self.productID = productID
         self.name = name
@@ -130,23 +138,23 @@ class Option: Identifiable,Codable {
 
 // MARK: - Variant
 class Variant: Identifiable,Codable {
-    let id, productID: Int?
-    let title, price, sku: String?
-    let position: Int?
-    let inventoryPolicy: String?
+    var id, productID: Int?
+    var title, price, sku: String?
+    var position: Int?
+    var inventoryPolicy: String?
 //    let compareAtPrice: JSONNull?
-    let fulfillmentService, inventoryManagement, option1, option2: String?
+    var fulfillmentService, inventoryManagement, option1, option2: String?
 //    let option3: JSONNull?
-    let createdAt, updatedAt: String?
-    let taxable: Bool?
+    var createdAt, updatedAt: String?
+    var taxable: Bool?
 //    let barcode: JSONNull?
-    let grams: Int?
+    var grams: Int?
 //    let imageID: JSONNull?
-    let weight: Int?
-    let weightUnit: String?
-    let inventoryItemID, inventoryQuantity, oldInventoryQuantity: Int?
-    let requiresShipping: Bool?
-    let adminGraphqlAPIID: String?
+    var weight: Int?
+    var weightUnit: String?
+    var inventoryItemID, inventoryQuantity, oldInventoryQuantity: Int?
+    var requiresShipping: Bool?
+    var adminGraphqlAPIID: String?
 
     enum CodingKeys: String, CodingKey {
         case id

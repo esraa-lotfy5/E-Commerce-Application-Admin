@@ -13,6 +13,8 @@ enum NetworkRequest{
     case registerCustomer(customer: Parameters)
     case getProducts
     case deleteProduct(productID : Int)
+    case createProduct(param: Parameters)
+    case createVarients(productID : Int,param: Parameters)
 }
 
 extension NetworkRequest : TargetType {
@@ -31,6 +33,10 @@ extension NetworkRequest : TargetType {
             return "products.json"
         case .deleteProduct(let productID):
             return "products/\(productID).json"
+        case .createProduct:
+            return "products.json"
+        case .createVarients(let productID):
+            return "variants/\(productID).json"
         }
     }
     
@@ -43,6 +49,10 @@ extension NetworkRequest : TargetType {
             return  .get
         case .deleteProduct:
             return .delete
+        case .createProduct:
+            return .post
+        case .createVarients:
+            return .put
         }
     }
     
@@ -55,6 +65,10 @@ extension NetworkRequest : TargetType {
             return .requestPlain
         case .deleteProduct:
             return .requestPlain
+        case .createProduct(let param):
+            return .requestParameters(parameters: param, encoding: URLEncoding.default)
+        case .createVarients(_ ,let param):
+            return .requestParameters(parameters: param, encoding: URLEncoding.default)
         }
     }
     

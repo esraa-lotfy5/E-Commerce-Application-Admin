@@ -19,6 +19,9 @@
 		093D8544285F33F200BF4357 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093D8543285F33F200BF4357 /* PageControl.swift */; };
 		093D8546285F341300BF4357 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093D8545285F341300BF4357 /* PageViewController.swift */; };
 		093D8548285F343B00BF4357 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093D8547285F343B00BF4357 /* PageView.swift */; };
+		094C12F72861F59900EA8CED /* AddProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094C12F62861F59900EA8CED /* AddProductViewModel.swift */; };
+		094C12F92861F5B400EA8CED /* AddProductNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094C12F82861F5B400EA8CED /* AddProductNavigationBar.swift */; };
+		094C12FB2861F5C400EA8CED /* AddProductScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094C12FA2861F5C400EA8CED /* AddProductScreen.swift */; };
 		095BD420285E5CA4005EDAA5 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BD41F285E5CA4005EDAA5 /* Product.swift */; };
 		09C05C93285C78F80071F607 /* E_Commerce_Application_AdminApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05C92285C78F80071F607 /* E_Commerce_Application_AdminApp.swift */; };
 		09C05C95285C78F80071F607 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05C94285C78F80071F607 /* ContentView.swift */; };
@@ -72,6 +75,9 @@
 		093D8543285F33F200BF4357 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		093D8545285F341300BF4357 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		093D8547285F343B00BF4357 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		094C12F62861F59900EA8CED /* AddProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddProductViewModel.swift; path = "E-Commerce Application Admin/Module/AddProductViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		094C12F82861F5B400EA8CED /* AddProductNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddProductNavigationBar.swift; path = "E-Commerce Application Admin/Module/AddProductNavigationBar.swift"; sourceTree = SOURCE_ROOT; };
+		094C12FA2861F5C400EA8CED /* AddProductScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddProductScreen.swift; path = "E-Commerce Application Admin/Module/AddProductScreen.swift"; sourceTree = SOURCE_ROOT; };
 		095BD41F285E5CA4005EDAA5 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		09C05C8F285C78F80071F607 /* E-Commerce Application Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-Commerce Application Admin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C05C92285C78F80071F607 /* E_Commerce_Application_AdminApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = E_Commerce_Application_AdminApp.swift; sourceTree = "<group>"; };
@@ -173,6 +179,8 @@
 		093D8532285F27A700BF4357 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				094C12F82861F5B400EA8CED /* AddProductNavigationBar.swift */,
+				094C12FA2861F5C400EA8CED /* AddProductScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,6 +188,7 @@
 		093D8533285F27B100BF4357 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				094C12F62861F59900EA8CED /* AddProductViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -668,6 +677,7 @@
 				BC59EF30285CE18E0048AE21 /* CreateCustomerView.swift in Sources */,
 				BC59EF29285CDFE90048AE21 /* MainScreen.swift in Sources */,
 				09C05CCF285C832B0071F607 /* NetworkRequest.swift in Sources */,
+				094C12F92861F5B400EA8CED /* AddProductNavigationBar.swift in Sources */,
 				09C05C95285C78F80071F607 /* ContentView.swift in Sources */,
 				093D8542285F33B400BF4357 /* FeatureCard.swift in Sources */,
 				093D8544285F33F200BF4357 /* PageControl.swift in Sources */,
@@ -677,11 +687,13 @@
 				093D853D285F329500BF4357 /* ProductDetailsImage.swift in Sources */,
 				093D8538285F27F600BF4357 /* ProductDetailsScreen.swift in Sources */,
 				093D8546285F341300BF4357 /* PageViewController.swift in Sources */,
+				094C12FB2861F5C400EA8CED /* AddProductScreen.swift in Sources */,
 				BC59EF35285CE4350048AE21 /* Customer.swift in Sources */,
 				09C05C9F285C78FD0071F607 /* E_Commerce_Application_Admin.xcdatamodeld in Sources */,
 				093D852E285F1D9200BF4357 /* ProductScreen.swift in Sources */,
 				9B60A3912861D4CE0001DEEE /* DetailsView.swift in Sources */,
 				093D852A285F1D4A00BF4357 /* ProductCell.swift in Sources */,
+				094C12F72861F59900EA8CED /* AddProductViewModel.swift in Sources */,
 				093D8548285F343B00BF4357 /* PageView.swift in Sources */,
 				093D853B285F286D00BF4357 /* ProductDetailsNavigationBar.swift in Sources */,
 				09C05CC9285C82E80071F607 /* BaseAPI.swift in Sources */,
