@@ -192,3 +192,4 @@ struct AddPriceRule_Previews: PreviewProvider {
         AddPriceRule()
     }
 }
+

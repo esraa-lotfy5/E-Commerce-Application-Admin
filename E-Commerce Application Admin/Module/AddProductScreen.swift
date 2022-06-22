@@ -101,7 +101,7 @@ struct AddProductScreen: View {
                     Text("WARNING: Tags must be sepreted by '|'")
                         .frame(alignment: .leading)
                         .font(.system(size: 15))
-                        .foregroundColor(.red)
+                        .foregroundColor(.green)
                         .padding(.leading)
                     TextField("product Tags", text: $productTags)
                         .padding()

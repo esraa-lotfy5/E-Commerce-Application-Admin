@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AddProductNavigationBar: View {
-    @State private var isActive = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
         VStack{
@@ -41,27 +40,10 @@ struct AddProductNavigationBar: View {
                Spacer()
             
             Spacer().frame(width:8)
-            //  --------- start of add icon -----------------
-        
-                HStack {
-                    Text("Save")
-                    .foregroundColor(.black)
-                }
-                .onTapGesture {self.isActive.toggle() }
-                    
-//                .background(NavigationLink(destination: WishList(product: [Product3(name: "test", price: 90.0, size: "S", desc: "desc")]), isActive: $isActive) { EmptyView() })
-                .padding(15)
-                .frame(width: 70, height: 40)
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(color: Color.gray, radius: 3, x: 0, y: 3)
+            Spacer().frame(width: 24.0)
                 
-            //  --------- end of fav icon -----------------
-               Spacer().frame(width: 24.0)
             }.padding(.bottom, 16)
                .padding(.top, 16)
-
-        
         }
     }
 }

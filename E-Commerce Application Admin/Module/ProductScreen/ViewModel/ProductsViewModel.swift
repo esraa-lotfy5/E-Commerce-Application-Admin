@@ -11,27 +11,15 @@ class ProductsViewModel : ObservableObject{
     
     @Published var products : [Product] = []
     var api :NetworkAPIProtocol = NetworkAPI()
-    
-//    init() {
-//        DispatchQueue.main.async {
-//            self.getProducts()
-//        }
-//
-//    }
+
     
     func getProducts() -> Void{
         api.getProducts(completion: { (result) in
             switch result {
             case .success(let response):
                 let productsResponse = response
-                print("----------------------------------- products count = \(productsResponse?.products.count)")
+//                print("----------------------------------- products count = \(productsResponse?.products.count)")
                 self.products = productsResponse?.products ?? []
-                //self.productsCopy = self.products
-                //print("----------------------------------for: \(self.products.isEmpty)----------")
-//                for product in self.products{
-                    //print("----------------------------------product----------")
-    //                    print("product name -> \(product.title)")
-//                }
             case .failure(let error):
                 // Show UI Error
                 print(error.userInfo[NSLocalizedDescriptionKey] as? String ?? "Unknown Error")
@@ -41,8 +29,7 @@ class ProductsViewModel : ObservableObject{
     }
     
     func deleteProduct(product: Product){
-        print("deleted Product name: \(product.title)")
+//        print("deleted Product name: \(product.title)")
         api.deleteProduct(productID: product.id ?? 0)
-        getProducts()
     }
 }

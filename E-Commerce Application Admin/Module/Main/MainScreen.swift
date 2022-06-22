@@ -27,10 +27,8 @@ struct MainScreen: View {
                         .cornerRadius(10)
                         .padding()
                 }
-                NavigationLink(destination: Text("CRUD Product")
+                NavigationLink(destination: ProductScreen()
                     .navigationBarBackButtonHidden(true)
-//                NavigationLink(destination: ProductScreen()
-//                    .navigationBarBackButtonHidden(true)
                 ) {
                     Text("Products")
                         .bold()
@@ -42,18 +40,6 @@ struct MainScreen: View {
                         .padding()
                 }
                 
-                NavigationLink(destination: Text("CRUD Inventory")
-                    .navigationBarBackButtonHidden(true)
-                ) {
-                    Text("Inventory")
-                        .bold()
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .foregroundColor(Color.white)
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                        .padding()
-                }
                 
                 NavigationLink(destination: DiscountCodeScreen()
                     .navigationBarBackButtonHidden(true)

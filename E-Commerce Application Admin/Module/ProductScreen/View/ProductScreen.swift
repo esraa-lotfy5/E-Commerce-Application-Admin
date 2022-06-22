@@ -11,7 +11,6 @@ var items : [Product] = [Product(id: 6870135341195, title: "ADIDAS | CLASSIC BAC
 
 
 struct ProductScreen: View {
-    @State var productIndex : Int = 0
     @ObservedObject var productsViewModel : ProductsViewModel = ProductsViewModel()
     var body: some View {
         
@@ -26,9 +25,12 @@ struct ProductScreen: View {
                       }
                         
                       .onDelete { indexSet in
-                          productsViewModel.products.remove(atOffsets: indexSet)
+                
+                          DispatchQueue.main.async {
+                              
                           productsViewModel.deleteProduct(product: productsViewModel.products[indexSet.first ?? -1])
-                          productsViewModel.getProducts()
+                              productsViewModel.products.remove(atOffsets: indexSet)
+                          }
                       }
                 }
                 
