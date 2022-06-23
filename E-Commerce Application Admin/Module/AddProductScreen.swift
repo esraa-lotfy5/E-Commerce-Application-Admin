@@ -9,6 +9,8 @@ import SwiftUI
 import Alamofire
 
 struct AddProductScreen: View {
+    @State var editing : Bool = false
+    @State var productID : Int = -1
     @State var productVendor : String = ""
     @State var productName : String = ""
     @State var productDescription : String = ""
@@ -21,9 +23,26 @@ struct AddProductScreen: View {
     @State var confirmPassword: String = ""
     @State var errorMessage: String = ""
     @State var confirmationMessage: String = ""
+
     
     @ObservedObject var addProductViewModel : AddProductViewModel = AddProductViewModel()
     @State private var isActive = false
+    
+    init(){}
+    
+    init(editingProduct: Product){
+        self.init()
+        self.editing = true
+        self.productID = editingProduct.id ?? -1
+        self.productName = editingProduct.title ?? ""
+        self.productDescription = editingProduct.bodyHTML ?? ""
+        self.productVendor = editingProduct.vendor ?? ""
+        self.productType = editingProduct.productType ?? ""
+        self.productTags = editingProduct.tags ?? ""
+        self.productPrice = editingProduct.variants?[0].price ?? ""
+        self.productSize = editingProduct.variants?[0].option1 ?? ""
+        self.productColor = editingProduct.variants?[0].option2 ?? ""
+    }
     
     var body: some View {
         VStack{
@@ -115,10 +134,18 @@ struct AddProductScreen: View {
                 NavigationLink(destination: ProductScreen(), isActive: $isActive) { EmptyView()}
                 Button(action: {
                     if self.validateCreation() {
+                        if(!editing){
                         // continue with register
                         DispatchQueue.main.async{
                             createProduct()
                             isActive = true
+                        }
+                        }else{
+                            // edit product
+                            DispatchQueue.main.async{
+                                updateProduct()
+                                isActive = true
+                            }
                         }
                     }
                         
@@ -181,26 +208,41 @@ struct AddProductScreen: View {
         func createProduct() {
             let tags = productTags.split(separator: "|")
             print("product color: \(productColor)")
-            let product: Parameters = [ "product": [
-                "title": "\(productVendor)|\(productName)",
-                "body_html": productDescription,
-                "vendor": productVendor,
-                "product_type": productType,
-                "tags": tags,
-                "variants": [[
-                    "title":"\(productSize)|\(productColor)",
-                    "price": productPrice,
-                    "option1": productSize,
-                    "option2": productColor
-                ]],
-                "images": [[
-                    "src":"http://example.com/rails_logo.gif"
-                ]]
-            ]
-            ]
-            
-
-            addProductViewModel.createProduct(product: product) { result in
+//            let product: Parameters = [ "product": [
+//                "title": "\(productVendor)|\(productName)",
+//                "body_html": productDescription,
+//                "vendor": productVendor,
+//                "product_type": productType,
+//                "tags": tags,
+//                "variants": [[
+//                    "title":"\(productSize)|\(productColor)",
+//                    "price": productPrice,
+//                    "option1": productSize,
+//                    "option2": productColor
+//                ]],
+//                "images": [[
+//                    "src":"http://example.com/rails_logo.gif"
+//                ]]
+//            ]
+//            ]
+            let product = Product()
+            product.title = "\(productVendor)|\(productName)"
+            product.bodyHTML = productDescription
+            product.vendor = productVendor
+            product.productType = productType
+            product.tags = productTags.replacingOccurrences(of: "|", with: ",")
+            product.variants?[0].price = productPrice
+            product.variants?[0].option1 = productSize
+            product.variants?[0].option2 = productColor
+//            do{
+            let jsonEncoder = JSONEncoder()
+            let jsonData = try! jsonEncoder.encode(product)
+            //let json = String(data: jsonData, encoding: String.Encoding.utf8)
+            //print("json: \(json)")
+//            }catch(error){
+//                print("error occured while ")
+//            }
+            addProductViewModel.createProduct(product: jsonData) { result in
 
                 switch result {
 
@@ -212,6 +254,41 @@ struct AddProductScreen: View {
                 }
             }
         }
+    
+    func updateProduct() {
+        let tags = productTags.split(separator: "|")
+        print("product color: \(productColor)")
+        let product: Parameters = [ "product": [
+            "title": "\(productVendor)|\(productName)",
+            "body_html": productDescription,
+            "vendor": productVendor,
+            "product_type": productType,
+            "tags": tags,
+            "variants": [[
+                "title":"\(productSize) / \(productColor)",
+                "price": productPrice,
+                "option1": productSize,
+                "option2": productColor
+            ]],
+            "images": [[
+                "src":"http://example.com/rails_logo.gif"
+            ]]
+        ]
+        ]
+        
+
+        addProductViewModel.updateProduct(productId: productID ,product: product) { result in
+
+            switch result {
+
+            case .success(let product):
+                print("product updated successfully , product name: \(product?.title)")
+
+            case .failure(let error):
+                showErrorMessage(error.localizedDescription)
+            }
+        }
+    }
 
     }
 

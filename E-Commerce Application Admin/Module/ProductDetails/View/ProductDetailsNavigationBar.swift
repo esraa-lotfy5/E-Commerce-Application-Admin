@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ProductDetailsNavigationBar: View {
+    @Binding var product : Product
+    @State var selection: Int? = nil
     @State var buttonText = "Edit"
-    @Binding var editingEnabled : Bool
+    @State var editingEnabled : Bool = false
     @State private var isActive = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
@@ -41,23 +43,25 @@ struct ProductDetailsNavigationBar: View {
                    .fontWeight(.bold)
             //  ------------ end of header text --------------------
                Spacer()
-            
             Spacer().frame(width:8)
             //  --------- start of add icon -----------------
         
+                NavigationLink(destination: AddProductScreen(editingProduct: product), tag: 1, selection: $selection){
                 HStack {
                     Text(buttonText)
                     .foregroundColor(.black)
                 }
                 .onTapGesture {
+                    self.selection = 1
                     self.isActive.toggle()
                     if(editingEnabled){
-                        buttonText = "Save"
+//                        buttonText = "Save"
                         editingEnabled = false
                     }else{
-                        buttonText = "Edit"
+//                        buttonText = "Edit"
                         editingEnabled = true
                     }
+                }
                 }
                     
 //                .background(NavigationLink(destination: WishList(product: [Product3(name: "test", price: 90.0, size: "S", desc: "desc")]), isActive: $isActive) { EmptyView() })
