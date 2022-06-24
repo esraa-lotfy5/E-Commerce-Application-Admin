@@ -2,18 +2,22 @@
 //  InventoryScreen.swift
 //  E-Commerce Application Admin
 //
-//  Created by Nour Gweda on 19/06/2022.
+//  Created by Nour Gweda on 24/06/2022.
 //
 
 import SwiftUI
 
 struct InventoryScreen: View {
+    @State var inventoryItemId : Int?
     @ObservedObject  var viewModelInventory = InventoryViewModel()
     @State var textInventoryId: String = ""
     @State var showingAlert = false
     @State var itemInventory : InventoryLevel?
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
+//    init (inventoryItemId : Int){
+//        self.inventoryItemId = inventoryItemId
+//    }
     
     
     var body: some View {
@@ -43,35 +47,37 @@ struct InventoryScreen: View {
             }
             
 
-            HStack{
+           VStack{
 
                 Text(" Available Items = \(viewModelInventory.inventoryArr?.available ?? 0)")
                     .foregroundColor(Color.blue)
                     .font(.title2)
-                    .frame(maxWidth: .infinity ,maxHeight: 40, alignment: .leading)
-                    .border(.gray)
+                    .frame(maxWidth: .infinity , alignment: .leading)
+                    //.border(.gray)
                     .cornerRadius(5)
-                    .padding(.leading,10)
+                    .padding()
                     
                 
                 
         Button {
             print("\nButton is pressed\n")
             
-            viewModelInventory.getInventoryLevel(inventoryItemId: 43702142501037 )
+            viewModelInventory.getInventoryLevel(inventoryItemId: inventoryItemId! )
             self.itemInventory = viewModelInventory.inventoryArr
-            
+           // print("id== \(inventoryItemId!)")
 
         } label: {
             Text("Get Quantity")
+                .bold()
                 .padding()
-                .font(.body)
+                .frame(maxWidth: .infinity)
+                .foregroundColor(Color.white)
                 .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(20)
+                .cornerRadius(10)
+                .padding()
   
         }
-        .padding()
+        //.padding()
 
 
             }
@@ -79,17 +85,14 @@ struct InventoryScreen: View {
             
             
             Text ("To check the quantity of a specific item for a certain location of this shop")
-            //.lineLimit(.max)
-            .font(.body)
-            //.multilineTextAlignment(.leading)
-            //.lineLimit(.max)
-            .foregroundColor(Color.gray)
-            //.padding()
-            .lineLimit(.max)
+                .lineLimit(.max)
+                .font(.body)
+                .foregroundColor(Color.gray)
+
                 
             
             
-            Spacer()
+           // Spacer()
             Divider()
             //Spacer()
 
@@ -111,11 +114,13 @@ struct InventoryScreen: View {
             
             //start of search field
             HStack{
-            HStack {
+            VStack {
                 TextField("Input the number of updated quantity", text: $textInventoryId)
-                    .foregroundColor(Color.blue)
-                    .border(.gray)
-                    .cornerRadius(5)
+                    .textFieldStyle(.roundedBorder)
+                    .padding()
+//                    .foregroundColor(Color.blue)
+//                    .border(.gray)
+//                    .cornerRadius(5)
                 
                 //start of button
                 /////// post inventory item of available item
@@ -126,7 +131,7 @@ struct InventoryScreen: View {
                         
                         let inventoryItemObj = [
                         "location_id": Constants.locationId,
-                        "inventory_item_id": 43702138863789,
+                        "inventory_item_id": inventoryItemId!,
                         "available": Int(textInventoryId)
                          ]
                         viewModelInventory.postInventoryLevel(inventoryItem: inventoryItemObj)
@@ -134,11 +139,13 @@ struct InventoryScreen: View {
 
                 } label: {
                     Text("Add")
+                        .bold()
                         .padding()
-                        .font(.body)
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(Color.white)
                         .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(20)
+                        .cornerRadius(10)
+                        .padding()
                         
                 }.alert("the input isn't correct", isPresented: $showingAlert) {
                     Button("OK", role: .cancel) { }
@@ -148,23 +155,21 @@ struct InventoryScreen: View {
             }
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .keyboardType(.decimalPad)
-            }.padding()
+            }
+            //.padding()
         
 
             Text ("To add the quantity of a specific item for a certain location of this shop,this field adjust the quantity and not increase , this field accept only a number")
-                //.lineLimit(.max)
                 .font(.body)
-                //.multilineTextAlignment(.leading)
-                //.lineLimit(.max)
                 .foregroundColor(Color.gray)
-                //.padding()
                 .lineLimit(.max)
+
             
-        
+        //Spacer()
             
 
-            }
-        
+        }.navigationBarBackButtonHidden(true)
+        Spacer()
     }
 }
 
@@ -173,3 +178,4 @@ struct InventoryScreen_Previews: PreviewProvider {
         InventoryScreen()
     }
 }
+

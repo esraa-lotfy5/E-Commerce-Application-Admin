@@ -25,6 +25,7 @@ struct ProductDetailsScreen: View {
     
     @State var varientID:Int?
 
+    @State var isAlertInventory : Bool = false
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 //    @ObservedObject var productDetailsViewModel : ProductDetailsViewModel = ProductDetailsViewModel()
@@ -100,10 +101,13 @@ struct ProductDetailsScreen: View {
 
             
                     //#TODO: Inventory Level BUTTON
-                    NavigationLink(destination: Text("CRUD Gift Cards").navigationBarBackButtonHidden(true)
-                    ){
+                   // NavigationLink(destination: Text("CRUD Gift Cards").navigationBarBackButtonHidden(true)
+                    //)
+                    
                     Button(action: {
                         print("Go to Inventory level")
+                        print("from details == \(product?.variants?[0].inventoryItemID ?? 0)")
+                        isAlertInventory.toggle()
                     })
                     {
                         Text("Inventory level").bold()
@@ -114,7 +118,8 @@ struct ProductDetailsScreen: View {
                         .cornerRadius(10)
                         .disabled(isAvailable)
                         
-                    }
+                    .background(NavigationLink(destination:  // link in background
+                                               InventoryScreen(inventoryItemId: product?.variants?[0].inventoryItemID ?? 0), isActive: $isAlertInventory) { EmptyView() })
 
 
                     //TODO: Details

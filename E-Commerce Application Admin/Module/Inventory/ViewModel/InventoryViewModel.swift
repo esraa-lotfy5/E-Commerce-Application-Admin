@@ -2,7 +2,7 @@
 //  InventoryViewModel.swift
 //  E-Commerce Application Admin
 //
-//  Created by Nour Gweda on 19/06/2022.
+//  Created by Nour Gweda on 24/06/2022.
 //
 
 import Foundation
@@ -14,7 +14,6 @@ class InventoryViewModel : ObservableObject{
 
         
     //trial
-
     func getInventoryLevel (inventoryItemId : Int){
         api.getInventoryLevel(inventoryItemId: inventoryItemId) { (result) in
             switch result {

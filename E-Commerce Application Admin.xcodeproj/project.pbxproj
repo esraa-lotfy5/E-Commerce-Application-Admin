@@ -37,7 +37,6 @@
 		09C05CCD285C83180071F607 /* NetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05CCC285C83180071F607 /* NetworkAPI.swift */; };
 		09C05CCF285C832B0071F607 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05CCE285C832B0071F607 /* NetworkRequest.swift */; };
 		09C05CD4285C84760071F607 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C05CD3285C84760071F607 /* Constants.swift */; };
-		09C9576428639246003AE625 /* Inventory in Resources */ = {isa = PBXBuildFile; fileRef = 09C9576328639245003AE625 /* Inventory */; };
 		09C9576A28639307003AE625 /* PriceRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C9576728639307003AE625 /* PriceRule.swift */; };
 		09C9576B28639307003AE625 /* InventoryLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C9576828639307003AE625 /* InventoryLevels.swift */; };
 		09C9576C28639307003AE625 /* DiscountCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C9576928639307003AE625 /* DiscountCode.swift */; };
@@ -47,6 +46,8 @@
 		09C9577728639557003AE625 /* PriceRuleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C9577628639557003AE625 /* PriceRuleItem.swift */; };
 		09C9577928639597003AE625 /* DiscountCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C9577828639597003AE625 /* DiscountCodeViewModel.swift */; };
 		3B383A153540287029E11E9D /* Pods_E_Commerce_Application_Admin_E_Commerce_Application_AdminUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D480A8297474A09F5715C445 /* Pods_E_Commerce_Application_Admin_E_Commerce_Application_AdminUITests.framework */; };
+		4114FC642865CE020051FE9C /* InventoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4114FC632865CE020051FE9C /* InventoryScreen.swift */; };
+		4114FC662865CE1E0051FE9C /* InventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4114FC652865CE1E0051FE9C /* InventoryViewModel.swift */; };
 		9B60A3912861D4CE0001DEEE /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60A3902861D4CE0001DEEE /* DetailsView.swift */; };
 		BC59EF29285CDFE90048AE21 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59EF28285CDFE90048AE21 /* MainScreen.swift */; };
 		BC59EF30285CE18E0048AE21 /* CreateCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59EF2F285CE18E0048AE21 /* CreateCustomerView.swift */; };
@@ -105,7 +106,6 @@
 		09C05CCC285C83180071F607 /* NetworkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPI.swift; sourceTree = "<group>"; };
 		09C05CCE285C832B0071F607 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		09C05CD3285C84760071F607 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		09C9576328639245003AE625 /* Inventory */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Inventory; sourceTree = "<group>"; };
 		09C9576728639307003AE625 /* PriceRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceRule.swift; sourceTree = "<group>"; };
 		09C9576828639307003AE625 /* InventoryLevels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryLevels.swift; sourceTree = "<group>"; };
 		09C9576928639307003AE625 /* DiscountCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCode.swift; sourceTree = "<group>"; };
@@ -116,6 +116,8 @@
 		09C9577828639597003AE625 /* DiscountCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodeViewModel.swift; sourceTree = "<group>"; };
 		1FD6CF80C32213E3647AE510 /* Pods_E_Commerce_Application_AdminTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_E_Commerce_Application_AdminTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA8B8A96E41445638717CDE /* Pods-E-Commerce Application Admin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-Commerce Application Admin.debug.xcconfig"; path = "Target Support Files/Pods-E-Commerce Application Admin/Pods-E-Commerce Application Admin.debug.xcconfig"; sourceTree = "<group>"; };
+		4114FC632865CE020051FE9C /* InventoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryScreen.swift; sourceTree = "<group>"; };
+		4114FC652865CE1E0051FE9C /* InventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewModel.swift; sourceTree = "<group>"; };
 		709EB86679631A036726A575 /* Pods-E-Commerce Application Admin-E-Commerce Application AdminUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-Commerce Application Admin-E-Commerce Application AdminUITests.release.xcconfig"; path = "Target Support Files/Pods-E-Commerce Application Admin-E-Commerce Application AdminUITests/Pods-E-Commerce Application Admin-E-Commerce Application AdminUITests.release.xcconfig"; sourceTree = "<group>"; };
 		76A6C6B82A0884127A104E5A /* Pods_E_Commerce_Application_Admin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_E_Commerce_Application_Admin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B60A3902861D4CE0001DEEE /* DetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
@@ -424,11 +426,36 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4114FC602865CDDB0051FE9C /* Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				4114FC622865CDF00051FE9C /* ViewModel */,
+				4114FC612865CDE90051FE9C /* View */,
+			);
+			path = Inventory;
+			sourceTree = "<group>";
+		};
+		4114FC612865CDE90051FE9C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4114FC632865CE020051FE9C /* InventoryScreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4114FC622865CDF00051FE9C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4114FC652865CE1E0051FE9C /* InventoryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		BC59EF26285CDFC30048AE21 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				4114FC602865CDDB0051FE9C /* Inventory */,
 				09C9576D2863942C003AE625 /* DiscountCode */,
-				09C9576328639245003AE625 /* Inventory */,
 				093D8534285F27C800BF4357 /* ProductDetails */,
 				093D8531285F278C00BF4357 /* AddProduct */,
 				093D8526285F1CF400BF4357 /* ProductScreen */,
@@ -592,7 +619,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09C9576428639246003AE625 /* Inventory in Resources */,
 				09C05C9A285C78FD0071F607 /* Preview Assets.xcassets in Resources */,
 				09C05C97285C78FD0071F607 /* Assets.xcassets in Resources */,
 			);
@@ -732,6 +758,7 @@
 				BC59EF29285CDFE90048AE21 /* MainScreen.swift in Sources */,
 				09C05CCF285C832B0071F607 /* NetworkRequest.swift in Sources */,
 				094C12F92861F5B400EA8CED /* AddProductNavigationBar.swift in Sources */,
+				4114FC642865CE020051FE9C /* InventoryScreen.swift in Sources */,
 				09C05C95285C78F80071F607 /* ContentView.swift in Sources */,
 				093D8542285F33B400BF4357 /* FeatureCard.swift in Sources */,
 				093D8544285F33F200BF4357 /* PageControl.swift in Sources */,
@@ -740,6 +767,7 @@
 				09C05C93285C78F80071F607 /* E_Commerce_Application_AdminApp.swift in Sources */,
 				BC59EF32285CE3F10048AE21 /* AuthViewModel.swift in Sources */,
 				093D853D285F329500BF4357 /* ProductDetailsImage.swift in Sources */,
+				4114FC662865CE1E0051FE9C /* InventoryViewModel.swift in Sources */,
 				093D8538285F27F600BF4357 /* ProductDetailsScreen.swift in Sources */,
 				093D8546285F341300BF4357 /* PageViewController.swift in Sources */,
 				09C9576C28639307003AE625 /* DiscountCode.swift in Sources */,
