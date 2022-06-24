@@ -17,7 +17,7 @@ struct ProductDetailsScreen: View {
 //    @State var editingEnabled = false
     
     @State var isAvailable : Bool = false
-    @State var addToCartColor : Color = Color.blue
+    @State var addToCartColor : Color = Color.green
     @State var productQuantity = 0
     @State var productVariants : [Variant] = []
     @State var varients : [String] = []
@@ -162,7 +162,7 @@ struct ProductDetailsScreen: View {
                                     .foregroundColor( .white)
                                     .fontWeight(.semibold)
                                     .padding(3)
-                                    .background(Color.blue)
+                                    .background(Color.green)
                                     .cornerRadius(5)
                             }
                         
@@ -201,7 +201,7 @@ struct ProductDetailsScreen: View {
                                 .foregroundColor( .white)
                                 .fontWeight(.semibold)
                                 .padding(3)
-                                .background(Color.blue)
+                                .background(Color.green)
                                 .cornerRadius(5)
                             }
                         }.frame(height: 50)

@@ -22,7 +22,7 @@ protocol NetworkAPIProtocol {
     func postDiscountCode (discountCode : Parameters, discountId : Int ,completion : @escaping (Result<DiscountCode? , NSError>)-> Void)
     func deletePriceRule (priceRuleId : Int , completion : @escaping (Result<PriceRule? , NSError>) -> Void)
     func deleteDiscountCode (priceRuleId : Int , discountCodeId : Int , completion : @escaping (Result<DiscountCode? , NSError>) -> Void)
-    func createProduct(product: Data, completion: @escaping(Result<Product?, NSError>) -> Void)
+    func createProduct(product: Parameters, completion: @escaping(Result<Product?, NSError>) -> Void)
     func updateProduct(productID: Int ,product: Parameters, completion: @escaping(Result<Product?, NSError>) -> Void)
 }
 
@@ -99,15 +99,13 @@ class NetworkAPI: BaseAPI<NetworkRequest>, NetworkAPIProtocol {
             completion(result)
         }
     }
-    func createProduct(product: Data, completion: @escaping(Result<Product?, NSError>) -> Void){
-        let param = ["product": product]
-        self.writeData(target: .createProduct(param: param), responseClass: Product.self) { (result) in
+    func createProduct(product: Parameters, completion: @escaping(Result<Product?, NSError>) -> Void){
+        self.writeData(target: .createProduct(param: product), responseClass: Product.self) { (result) in
             completion(result)
         }
     }
-    
     func updateProduct(productID: Int ,product: Parameters, completion: @escaping(Result<Product?, NSError>) -> Void){
-        self.writeData(target: .updateProduct(productID: productID, param: product), responseClass: Product.self) { (result) in
+        self.writeData(target: .updateProduct(productID: productID, product: product), responseClass: Product.self) { (result) in
             completion(result)
         }
     }

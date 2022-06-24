@@ -46,7 +46,7 @@ struct ProductDetailsNavigationBar: View {
             Spacer().frame(width:8)
             //  --------- start of add icon -----------------
         
-                NavigationLink(destination: AddProductScreen(editingProduct: product), tag: 1, selection: $selection){
+                NavigationLink(destination: AddProductScreen(product: product), tag: 1, selection: $selection){
                 HStack {
                     Text(buttonText)
                     .foregroundColor(.black)

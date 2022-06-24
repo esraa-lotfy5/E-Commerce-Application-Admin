@@ -13,7 +13,7 @@ class AddProductViewModel : ObservableObject{
     @Published var product : Product = items[0]
     var api :NetworkAPIProtocol = NetworkAPI()
 
-    func createProduct(product: Data, completion: @escaping(Result<Product?, NSError>) -> Void) {
+    func createProduct(product: Parameters, completion: @escaping(Result<Product?, NSError>) -> Void) {
         
         api.createProduct(product: product) { result in
             
@@ -35,9 +35,9 @@ class AddProductViewModel : ObservableObject{
         }
     }
     
-    func updateProduct(productId : Int ,product: Parameters, completion: @escaping(Result<Product?, NSError>) -> Void) {
+    func updateProduct(productID :Int , product: Parameters, completion: @escaping(Result<Product?, NSError>) -> Void) {
         
-        api.updateProduct(productID : productId , product: product) { result in
+        api.updateProduct(productID :productID, product: product) { result in
             
             switch result {
             

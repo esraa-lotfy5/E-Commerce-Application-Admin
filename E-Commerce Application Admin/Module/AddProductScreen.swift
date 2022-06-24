@@ -9,8 +9,8 @@ import SwiftUI
 import Alamofire
 
 struct AddProductScreen: View {
-    @State var editing : Bool = false
-    @State var productID : Int = -1
+    var editedProduct : Product = items[0]
+    @State var editingMode: Bool = false
     @State var productVendor : String = ""
     @State var productName : String = ""
     @State var productDescription : String = ""
@@ -19,37 +19,48 @@ struct AddProductScreen: View {
     @State var productPrice : String = ""
     @State var productSize : String = ""
     @State var productColor : String = ""
-    @State var productImageURL : String = ""
+    @State var imageOneURL = ""
+    @State var imageTwoURL = ""
+    @State var imageThreeURL = ""
+    @State var imageFourURL = ""
     @State var confirmPassword: String = ""
     @State var errorMessage: String = ""
     @State var confirmationMessage: String = ""
-
     
     @ObservedObject var addProductViewModel : AddProductViewModel = AddProductViewModel()
     @State private var isActive = false
     
     init(){}
-    
-    init(editingProduct: Product){
+    init(product: Product){
         self.init()
-        self.editing = true
-        self.productID = editingProduct.id ?? -1
-        self.productName = editingProduct.title ?? ""
-        self.productDescription = editingProduct.bodyHTML ?? ""
-        self.productVendor = editingProduct.vendor ?? ""
-        self.productType = editingProduct.productType ?? ""
-        self.productTags = editingProduct.tags ?? ""
-        self.productPrice = editingProduct.variants?[0].price ?? ""
-        self.productSize = editingProduct.variants?[0].option1 ?? ""
-        self.productColor = editingProduct.variants?[0].option2 ?? ""
+        self.editedProduct = product
+        self.editingMode = true
+        self.productVendor = product.vendor ?? ""
+        self.productName = String(product.title?.split(separator: "|")[1] ?? "")
+        self.productDescription = product.bodyHTML ?? ""
+        self.productType = product.productType ?? ""
+        self.productTags = product.tags ?? ""
+        self.productPrice = product.variants?[0].price ?? ""
+        self.productSize = product.variants?[0].option1 ?? ""
+        self.productColor = product.variants?[0].option2 ?? ""
+        self.imageOneURL = product.images?[0].src ?? ""
+        self.imageTwoURL = product.images?[1].src ?? ""
+        self.imageThreeURL = product.images?[2].src ?? ""
+        self.imageFourURL = product.images?[3].src ?? ""
     }
     
     var body: some View {
-        VStack{
+        ScrollView{
             AddProductNavigationBar()
-            
+            VStack{
                 
-                VStack {
+                VStack (alignment: .leading){
+                    Text("Product name")
+                        .fontWeight(.bold)
+                        .font(.system(size: 16))
+                        .foregroundColor(.black)
+                        .frame(alignment: .leading)
+                        .padding(.leading)
                     TextField("Product Name", text: $productName)
                         .padding()
                         .padding(.bottom, -25)
@@ -57,10 +68,15 @@ struct AddProductScreen: View {
                     
                     Divider().padding()
                 }
+
                 
-                
-                
-                VStack {
+                VStack (alignment: .leading){
+                    Text("Product description")
+                        .fontWeight(.bold)
+                        .font(.system(size: 16))
+                        .foregroundColor(.black)
+                        .frame(alignment: .leading)
+                        .padding(.leading)
                     TextField("Product Description", text: $productDescription)
                         .padding()
                         .padding(.bottom, -25)
@@ -71,7 +87,13 @@ struct AddProductScreen: View {
                 
                 
                 
-                VStack {
+                VStack (alignment: .leading){
+                    Text("Product vendor")
+                        .fontWeight(.bold)
+                        .font(.system(size: 16))
+                        .foregroundColor(.black)
+                        .frame(alignment: .leading)
+                        .padding(.leading)
                     TextField("Product Vendor", text: $productVendor)
                         .padding()
                         .padding(.bottom, -25)
@@ -80,7 +102,13 @@ struct AddProductScreen: View {
                     Divider().padding()
                 }
                 
-                VStack {
+                VStack (alignment: .leading){
+                    Text("Product Type")
+                        .fontWeight(.bold)
+                        .font(.system(size: 16))
+                        .foregroundColor(.black)
+                        .frame(alignment: .leading)
+                        .padding(.leading)
                     TextField("product type", text: $productType)
                         .padding()
                         .padding(.bottom, -25)
@@ -89,7 +117,13 @@ struct AddProductScreen: View {
                     Divider().padding()
                 }
             
-                VStack {
+                VStack (alignment: .leading){
+                    Text("Product price")
+                        .fontWeight(.bold)
+                        .font(.system(size: 16))
+                        .foregroundColor(.black)
+                        .frame(alignment: .leading)
+                        .padding(.leading)
                     TextField("Price", text: $productPrice)
                         .padding()
                         .padding(.bottom, -25)
@@ -98,7 +132,13 @@ struct AddProductScreen: View {
                     Divider().padding()
                 }
             
-                VStack {
+                VStack (alignment: .leading){
+                    Text("Product size")
+                        .fontWeight(.bold)
+                        .font(.system(size: 16))
+                        .foregroundColor(.black)
+                        .frame(alignment: .leading)
+                        .padding(.leading)
                     TextField("Size", text: $productSize)
                         .padding()
                         .padding(.bottom, -25)
@@ -107,7 +147,13 @@ struct AddProductScreen: View {
                     Divider().padding()
                 }
             
-                VStack {
+                VStack (alignment: .leading){
+                    Text("Product color")
+                        .fontWeight(.bold)
+                        .font(.system(size: 16))
+                        .foregroundColor(.black)
+                        .frame(alignment: .leading)
+                        .padding(.leading)
                     TextField("Color", text: $productColor)
                         .padding()
                         .padding(.bottom, -25)
@@ -117,6 +163,13 @@ struct AddProductScreen: View {
                 }
                 
                 VStack (alignment: .leading){
+                    Text("Product Tags")
+                        .fontWeight(.bold)
+                        .font(.system(size: 16))
+                        .foregroundColor(.black)
+                        .frame(alignment: .leading)
+                        .padding(.leading)
+                        
                     Text("WARNING: Tags must be sepreted by '|'")
                         .frame(alignment: .leading)
                         .font(.system(size: 15))
@@ -125,28 +178,68 @@ struct AddProductScreen: View {
                     TextField("product Tags", text: $productTags)
                         .padding()
                         .padding(.bottom, -25)
-                        .foregroundColor(Color.blue)
+                        .foregroundColor(Color.black)
                     
                     Divider().padding()
                 }
+            
+            VStack (alignment: .leading){
+                Text("Product Images")
+                    .fontWeight(.bold)
+                    .font(.system(size: 16))
+                    .foregroundColor(.black)
+                    .frame(alignment: .leading)
+                    .padding(.leading)
+                
+                Text("Images' url must be sepreted by '|'")
+                    .frame(alignment: .leading)
+                    .font(.system(size: 15))
+                    .foregroundColor(.green)
+                    .padding(.leading)
+                
+                HStack{
+                    
+                    TextField("First", text: $imageOneURL)
+                        .padding()
+                        .padding(.bottom, -25)
+                        .foregroundColor(Color.gray)
+                    TextField("Second", text: $imageTwoURL)
+                        .padding()
+                        .padding(.bottom, -25)
+                        .foregroundColor(Color.black)
+                    TextField("Third", text: $imageThreeURL)
+                        .padding()
+                        .padding(.bottom, -25)
+                        .foregroundColor(Color.black)
+                    TextField("Fourth", text: $imageFourURL)
+                        .padding()
+                        .padding(.bottom, -25)
+                        .foregroundColor(Color.black)
+                }
+                
+                Divider().padding()
             }
+            }
+        }
+        
             VStack{
                 NavigationLink(destination: ProductScreen(), isActive: $isActive) { EmptyView()}
                 Button(action: {
                     if self.validateCreation() {
-                        if(!editing){
-                        // continue with register
-                        DispatchQueue.main.async{
-                            createProduct()
-                            isActive = true
-                        }
-                        }else{
-                            // edit product
+                        if(editingMode){
+                            // continue with register
                             DispatchQueue.main.async{
                                 updateProduct()
                                 isActive = true
                             }
+                        }else{
+                            // continue with register
+                            DispatchQueue.main.async{
+                                createProduct()
+                                isActive = true
+                            }
                         }
+                        
                     }
                         
                 }) {
@@ -156,7 +249,7 @@ struct AddProductScreen: View {
                 }
                     .padding().frame(maxWidth: .infinity)
                     .foregroundColor(Color.white)
-                    .background(Color.blue)
+                    .background(Color.green)
                     .cornerRadius(10)
                     .padding()
                 
@@ -171,7 +264,7 @@ struct AddProductScreen: View {
                 
             }.navigationBarHidden(true)
             
-//            Spacer().frame(height: 100)
+            Spacer().frame(height: 16)
                 
         }
     
@@ -187,7 +280,7 @@ struct AddProductScreen: View {
     
         func validateFields() -> Bool {
             
-            if self.productName.count > 0 && self.productVendor.count > 0 && self.productType.count > 0 && self.productTags.count > 0 && self.productDescription.count > 0 && self.productColor.count > 0 && self.productSize.count > 0 && self.productPrice.count > 0  {
+            if self.productName.count > 0 && self.productVendor.count > 0 && self.productType.count > 0 && self.productTags.count > 0 && self.productDescription.count > 0 && self.productColor.count > 0 && self.productSize.count > 0 && self.productPrice.count > 0 && self.imageOneURL.count > 0 && self.imageTwoURL.count > 0 && self.imageThreeURL.count > 0 && self.imageFourURL.count > 0   {
                 return true
             }
             
@@ -208,41 +301,40 @@ struct AddProductScreen: View {
         func createProduct() {
             let tags = productTags.split(separator: "|")
             print("product color: \(productColor)")
-//            let product: Parameters = [ "product": [
-//                "title": "\(productVendor)|\(productName)",
-//                "body_html": productDescription,
-//                "vendor": productVendor,
-//                "product_type": productType,
-//                "tags": tags,
-//                "variants": [[
-//                    "title":"\(productSize)|\(productColor)",
-//                    "price": productPrice,
-//                    "option1": productSize,
-//                    "option2": productColor
-//                ]],
-//                "images": [[
-//                    "src":"http://example.com/rails_logo.gif"
-//                ]]
-//            ]
-//            ]
-            let product = Product()
-            product.title = "\(productVendor)|\(productName)"
-            product.bodyHTML = productDescription
-            product.vendor = productVendor
-            product.productType = productType
-            product.tags = productTags.replacingOccurrences(of: "|", with: ",")
-            product.variants?[0].price = productPrice
-            product.variants?[0].option1 = productSize
-            product.variants?[0].option2 = productColor
-//            do{
-            let jsonEncoder = JSONEncoder()
-            let jsonData = try! jsonEncoder.encode(product)
-            //let json = String(data: jsonData, encoding: String.Encoding.utf8)
-            //print("json: \(json)")
-//            }catch(error){
-//                print("error occured while ")
-//            }
-            addProductViewModel.createProduct(product: jsonData) { result in
+            let product: Parameters = [ "product": [
+                "title": "\(productVendor)|\(productName)",
+                "body_html": productDescription,
+                "vendor": productVendor,
+                "product_type": productType,
+                "tags": tags,
+                "variants": [[
+                    "title":"\(productSize)|\(productColor)",
+                    "price": productPrice,
+                    "option1": productSize,
+                    "option2": productColor
+                ]],
+                "images": [
+                    ["src": imageOneURL],
+                    ["src": imageTwoURL],
+                    ["src": imageThreeURL],
+                    ["src": imageFourURL]
+                ],
+                "options": [
+                    [
+                        "name": "Color",
+                        "position": 1,
+                        "values": productColor
+                    ],
+                    [
+                        "name": "Size",
+                        "position": 1,
+                        "values": productSize
+                    ]
+            ]
+            ]
+            ]
+
+            addProductViewModel.createProduct(product: product) { result in
 
                 switch result {
 
@@ -254,7 +346,6 @@ struct AddProductScreen: View {
                 }
             }
         }
-    
     func updateProduct() {
         let tags = productTags.split(separator: "|")
         print("product color: \(productColor)")
@@ -265,24 +356,38 @@ struct AddProductScreen: View {
             "product_type": productType,
             "tags": tags,
             "variants": [[
-                "title":"\(productSize) / \(productColor)",
+                "title":"\(productSize)|\(productColor)",
                 "price": productPrice,
                 "option1": productSize,
                 "option2": productColor
             ]],
-            "images": [[
-                "src":"http://example.com/rails_logo.gif"
-            ]]
+            "images": [
+                ["src": imageOneURL],
+                ["src": imageTwoURL],
+                ["src": imageThreeURL],
+                ["src": imageFourURL]
+            ],
+            "options": [
+                [
+                    "name": "Color",
+                    "position": 1,
+                    "values": productColor
+                ],
+                [
+                    "name": "Size",
+                    "position": 1,
+                    "values": productSize
+                ]
         ]
         ]
-        
+        ]
 
-        addProductViewModel.updateProduct(productId: productID ,product: product) { result in
+        addProductViewModel.updateProduct(productID :editedProduct.id ?? -1 , product: product) { result in
 
             switch result {
 
             case .success(let product):
-                print("product updated successfully , product name: \(product?.title)")
+                print("product created successfully , product name: \(product?.title)")
 
             case .failure(let error):
                 showErrorMessage(error.localizedDescription)
@@ -290,7 +395,10 @@ struct AddProductScreen: View {
         }
     }
 
+
     }
+
+
 
 
 struct AddProductScreen_Previews: PreviewProvider {
