@@ -23,7 +23,7 @@ enum NetworkRequest{
     case deletePriceRule (priceRuleId : Int)
     case deleteDiscountCode (priceRuleId : Int , discountCodeId : Int)
     case createProduct(param: Parameters)
-    case updateProduct(productID :Int ,param: Parameters)
+    case updateProduct(productID :Int ,product: Parameters)
 }
 
 extension NetworkRequest : TargetType {

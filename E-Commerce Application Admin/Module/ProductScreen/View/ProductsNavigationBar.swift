@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductsNavigationBar: View {
     @State private var isActive = false
+    @State private var backIsActive = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
         VStack{
@@ -16,9 +17,9 @@ struct ProductsNavigationBar: View {
            
                Spacer().frame(width: 24.0)
             // --------Start back button -------------
-            
+                NavigationLink(destination: MainScreen(), isActive: $backIsActive) {
                 Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
+                    backIsActive = true
                 })
                 {
                     HStack {
@@ -30,6 +31,7 @@ struct ProductsNavigationBar: View {
                     .background(Color.white)
                     .cornerRadius(10)
                     .shadow(color: Color.gray, radius: 3, x: 0, y: 3)
+                }
                 }
             // -------- End back button ---------
             

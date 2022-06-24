@@ -34,4 +34,26 @@ class AddProductViewModel : ObservableObject{
             }
         }
     }
+    
+    func updateProduct(productID :Int , product: Parameters, completion: @escaping(Result<Product?, NSError>) -> Void) {
+        
+        api.updateProduct(productID :productID, product: product) { result in
+            
+            switch result {
+            
+            case .success(let response):
+                guard let newProduct = response else {
+                    return
+                }  // New Product
+
+                self.product = newProduct
+                completion(.success(self.product))
+                
+            case .failure(let error):
+                // Show UI Error
+                print(error.userInfo[NSLocalizedDescriptionKey] as? String ?? "Unknown Error")
+                completion(.failure(error))
+            }
+        }
+    }
 }

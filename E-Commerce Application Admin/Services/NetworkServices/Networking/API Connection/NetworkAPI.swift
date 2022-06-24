@@ -104,9 +104,8 @@ class NetworkAPI: BaseAPI<NetworkRequest>, NetworkAPIProtocol {
             completion(result)
         }
     }
-    
     func updateProduct(productID: Int ,product: Parameters, completion: @escaping(Result<Product?, NSError>) -> Void){
-        self.writeData(target: .updateProduct(productID: productID, param: product), responseClass: Product.self) { (result) in
+        self.writeData(target: .updateProduct(productID: productID, product: product), responseClass: Product.self) { (result) in
             completion(result)
         }
     }

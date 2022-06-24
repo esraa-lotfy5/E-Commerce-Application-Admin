@@ -9,15 +9,15 @@ import SwiftUI
 import Kingfisher
 
 struct ProductDetailsScreen: View {
-    @State var product : Product?
+    @State var product : Product
     
     @State private var presentAlert = false
     @State var newSize = ""
     @State var newColor = ""
-    @State var editingEnabled = false
+//    @State var editingEnabled = false
     
     @State var isAvailable : Bool = false
-    @State var addToCartColor : Color = Color.blue
+    @State var addToCartColor : Color = Color.green
     @State var productQuantity = 0
     @State var productVariants : [Variant] = []
     @State var varients : [String] = []
@@ -41,7 +41,7 @@ struct ProductDetailsScreen: View {
         ScrollView {
         VStack{
             //------------- Start of Naviagtion Bar --------------------
-            ProductDetailsNavigationBar(editingEnabled: $editingEnabled)
+            ProductDetailsNavigationBar(product: self.$product)
             //------------ End of Navigation Bar -----------------------
             
             //------------ Start of Product details --------------------
@@ -51,21 +51,21 @@ struct ProductDetailsScreen: View {
                 PageView(pages: [
                     FeatureCard(image:
                                     KFImage.url(URL(string:
-                                                        product?.images?[0].src ?? "" ))
+                                                        product.images?[0].src ?? "" ))
                                         .placeholder { Image("default") }
                         .resizable()
                         .onSuccess { r in print("done") }
                         .onFailure { r in print("failure") }
                         .loadImmediately()),
                     
-                    FeatureCard(image:  KFImage.url(URL(string:    product?.images![1].src ?? ""))
+                    FeatureCard(image:  KFImage.url(URL(string:    product.images![1].src ))
                         .placeholder { Image("default") }
                         .resizable()
                         .onSuccess { r in print("done") }
                         .onFailure { r in print("failure") }
                         .loadImmediately()),
                     
-                    FeatureCard(image: KFImage.url(URL(string:    product?.images?[2].src ?? ""))
+                    FeatureCard(image: KFImage.url(URL(string:    product.images?[2].src ?? ""))
                         .placeholder { Image("default") }
                         .resizable()
                         .onSuccess { r in print("done") }
@@ -77,9 +77,9 @@ struct ProductDetailsScreen: View {
                 VStack(alignment: .leading) {
                     //#TODO: TITLE AND PRICE
                     HStack {
-                        Text(product?.title?.split(separator: "|")[1] ?? "nothing").bold() // product.title ??
+                        Text(product.title?.split(separator: "|")[1] ?? "nothing").bold() // product.title ??
                         Spacer()
-                        Text("$\(product?.variants?[0].price ?? "" )").foregroundColor(.blue)
+                        Text("$\(product.variants?[0].price ?? "" )").foregroundColor(.blue)
                     }
 
 
@@ -87,7 +87,7 @@ struct ProductDetailsScreen: View {
                     VStack(alignment: .center){
 
                         Spacer()
-                        Text(product?.bodyHTML ?? "") //product.body_html ??
+                        Text(product.bodyHTML ?? "") //product.body_html ??
                             .font(.subheadline)
                             .foregroundColor(.secondary).padding(.top, 5).padding(.bottom, 5)
                             .frame(
@@ -129,14 +129,14 @@ struct ProductDetailsScreen: View {
                     HStack {
                         Text("Vendor")
                         Spacer()
-                        Text(product?.vendor ?? "")
+                        Text(product.vendor ?? "")
                     }.padding().background(colorGray)
                     
                     //TODO: Product Type
                     HStack {
                         Text("Type")
                         Spacer()
-                        Text(product?.productType ?? "")
+                        Text(product.productType ?? "")
                     }.padding().background(colorWhite)
                     
                     //TODO: Sizes
@@ -144,30 +144,30 @@ struct ProductDetailsScreen: View {
                     HStack {
                         Text("Sizes")
                         Spacer(minLength: 100)
-                        if(editingEnabled){
-                            Button(action: {
-                                print("Admin want to add new size")
-                                presentAlert = true
-                            }, label: {
-                                Image(systemName: "plus")
-                                    .foregroundColor(.white)
-                                    .padding(3)
-                                    .background(Color.blue)
-                                    .cornerRadius(5)
-                            })
-                        }
+//                        if(editingEnabled){
+//                            Button(action: {
+//                                print("Admin want to add new size")
+//                                presentAlert = true
+//                            }, label: {
+//                                Image(systemName: "plus")
+//                                    .foregroundColor(.white)
+//                                    .padding(3)
+//                                    .background(Color.blue)
+//                                    .cornerRadius(5)
+//                            })
+//                        }
                     }.frame(height: 50)
                         .padding(.leading)
                         .padding(.trailing)
                         .background(colorGray)
                     ScrollView{
                         HStack {
-                            ForEach(product?.options?.first?.values .map { $0 } ?? ["N/A"] , id: \.self){ item  in
+                            ForEach(product.options?.first?.values .map { $0 } ?? ["N/A"] , id: \.self){ item  in
                                 Text(item)
                                     .foregroundColor( .white)
                                     .fontWeight(.semibold)
                                     .padding(3)
-                                    .background(Color.blue)
+                                    .background(Color.green)
                                     .cornerRadius(5)
                             }
                         
@@ -183,30 +183,30 @@ struct ProductDetailsScreen: View {
                 HStack {
                     Text("Colors")
                     Spacer(minLength: 100)
-                    if(editingEnabled){
-                        Button(action: {
-                            print("Admin want to add new color")
-                            presentAlert = true
-                        }, label: {
-                            Image(systemName: "plus")
-                                .foregroundColor(.white)
-                                .padding(3)
-                                .background(Color.blue)
-                                .cornerRadius(5)
-                        })
-                    }
+//                    if(editingEnabled){
+//                        Button(action: {
+//                            print("Admin want to add new color")
+//                            presentAlert = true
+//                        }, label: {
+//                            Image(systemName: "plus")
+//                                .foregroundColor(.white)
+//                                .padding(3)
+//                                .background(Color.blue)
+//                                .cornerRadius(5)
+//                        })
+//                    }
                 }.frame(height: 50)
                     .padding(.leading)
                     .padding(.trailing)
                     .background(colorGray)
                 ScrollView{
                     HStack {
-                        ForEach(product?.options?.last?.values .map { $0 } ?? ["N/A"] , id: \.self){ item  in
+                        ForEach(product.options?.last?.values .map { $0 } ?? ["N/A"] , id: \.self){ item  in
                             Text(item)
                                 .foregroundColor( .white)
                                 .fontWeight(.semibold)
                                 .padding(3)
-                                .background(Color.blue)
+                                .background(Color.green)
                                 .cornerRadius(5)
                             }
                         }.frame(height: 50)
