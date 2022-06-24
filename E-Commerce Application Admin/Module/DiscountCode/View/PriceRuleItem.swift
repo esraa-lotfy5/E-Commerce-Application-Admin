@@ -38,7 +38,7 @@ struct PriceRuleItem: View {
                 .cornerRadius(10)
                 .shadow(color: Color.gray, radius: 3, x: 0, y: 3)
                 
-                Text("Price Rules")
+                Text("Price Rule Item")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity, alignment: .topLeading)
@@ -69,7 +69,7 @@ struct PriceRuleItem: View {
                     .foregroundColor(Color.white)
                     .background(Color.blue)
                     .cornerRadius(10)
-                    //.padding()
+                    .padding()
             }
 
             
@@ -88,7 +88,7 @@ struct PriceRuleItem: View {
                     .foregroundColor(Color.white)
                     .background(Color.blue)
                     .cornerRadius(10)
-                    //.padding()
+                    .padding()
             }.background(NavigationLink(destination:  // link in background
                                         DiscountCodeList( priceRuleId: priceRuleItemId , discountArrInDetails : discountArrInItem)  , isActive: $isActiveItem) { EmptyView() })
             
@@ -98,6 +98,16 @@ struct PriceRuleItem: View {
             
             //create discount code button
             TextField("Input the title of discount code", text: $discountCodeTitle )
+                .textFieldStyle(.roundedBorder)
+                .padding()
+            
+            Text("Example : OPENING45OFF ")
+                .frame(maxWidth: .infinity,alignment: .leading)
+                .foregroundColor(Color.gray)
+                .font(.body)
+                .padding(.leading , 20)
+            
+            
             Button {
                 print("create button is pressed")
                 if discountCodeTitle.isEmpty{
@@ -122,7 +132,7 @@ struct PriceRuleItem: View {
                     .foregroundColor(Color.white)
                     .background(Color.blue)
                     .cornerRadius(10)
-                   // .padding()
+                    .padding()
             }.alert("the input isn't correct", isPresented: $showAlert) {
                 Button("OK", role: .cancel) { }
             }

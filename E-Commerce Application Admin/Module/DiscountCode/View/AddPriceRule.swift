@@ -48,32 +48,40 @@ struct AddPriceRule: View {
             }
             //header
             
-            Text("When the value of target_type is shipping line, then this value must be each")
-                .font(.body)
-                .foregroundColor(Color.red)
-                .lineLimit(.max)
-                .padding()
-            Text("If target_type is shipping_line, then only percentage is accepted")
-                .font(.body)
-                .foregroundColor(Color.red)
-                .lineLimit(.max)
-                .padding()
+//            Text("When the value of target_type is shipping line, then this value must be each")
+//                .font(.body)
+//                .foregroundColor(Color.red)
+//                .lineLimit(.max)
+//                .padding()
+//            Text("If target_type is shipping_line, then only percentage is accepted")
+//                .font(.body)
+//                .foregroundColor(Color.red)
+//                .lineLimit(.max)
+//                .padding()
             
             //Body
             
             TextField("enter the title whithout any spaces", text: $priceRuleTitle)
-                .foregroundColor(Color.blue)
-                .border(.gray)
-                .cornerRadius(5)
-                .font(.title2)
+                .textFieldStyle(.roundedBorder)
                 .padding()
             
+            Text("Example : OPENING45OFF ")
+                .frame(maxWidth: .infinity,alignment: .leading)
+                .foregroundColor(Color.gray)
+                .font(.body)
+                .padding(.leading , 20)
+                
+            
             TextField("enter the value whithout any spaces", text: $priceRuleValue)
-                .foregroundColor(Color.blue)
-                .border(.gray)
-                .cornerRadius(5)
-                .font(.title2)
+                .textFieldStyle(.roundedBorder)
                 .padding()
+            
+            Text("Example : 120 or 80 ")
+                .frame(maxWidth: .infinity,alignment: .leading)
+                .foregroundColor(Color.gray)
+                .font(.body)
+                .padding(.leading , 20)
+            
             
                 Form {
                     Section("Price Rule Selection") {
@@ -105,6 +113,13 @@ struct AddPriceRule: View {
                     }
                 }
             
+            
+            Text("Important Note : when the target type is 'shipping_line', then the allocation method must be 'each' and the value type must be 'percentage'")
+                .frame(maxWidth: .infinity,alignment: .leading)
+                .foregroundColor(Color.red)
+                .font(.body)
+                .padding(.leading , 20)
+                .lineLimit(.max)
 
             Button {
                 var targetTypeStr : String = ""

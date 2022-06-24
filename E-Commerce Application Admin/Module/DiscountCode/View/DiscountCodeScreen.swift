@@ -9,7 +9,8 @@ import SwiftUI
 
 struct DiscountCodeScreen: View {
     @ObservedObject  var viewModelDiscount = DiscountCodeViewModel()
-    @State var isActive : Bool = false
+    @State var isActiveToAdd : Bool = false
+    @State var isActiveToItem : Bool = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     
@@ -67,11 +68,11 @@ struct DiscountCodeScreen: View {
                                             
                     }.onTapGesture {
                         print("onTap == \(String(describing: row.id))")
-                        self.isActive.toggle()
+                        self.isActiveToItem.toggle()
                    }
 
                     .background(NavigationLink(destination:  // link in background
-                                               PriceRuleItem( priceRuleItemId: row.id), isActive: $isActive) { EmptyView() })
+                                               PriceRuleItem( priceRuleItemId: row.id), isActive: $isActiveToItem) { EmptyView() })
 
                 }
 
@@ -79,7 +80,7 @@ struct DiscountCodeScreen: View {
              }
             //end of the list
             Button {
-                isActive.toggle()
+                isActiveToAdd.toggle()
 
             } label: {
                 Text("Create new price rule")
@@ -92,7 +93,7 @@ struct DiscountCodeScreen: View {
                     .padding()
                 
             }.background(NavigationLink(destination:  // link in background
-                                        AddPriceRule()  , isActive: $isActive) { EmptyView() })
+                                        AddPriceRule()  , isActive: $isActiveToAdd) { EmptyView() })
 
         }.onAppear {
             viewModelDiscount.getPriceRule()
