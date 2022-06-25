@@ -50,7 +50,7 @@ struct InventoryScreen: View {
            VStack{
 
                 Text(" Available Items = \(viewModelInventory.inventoryArr?.available ?? 0)")
-                    .foregroundColor(Color.blue)
+                    .foregroundColor(Color.green)
                     .font(.title2)
                     .frame(maxWidth: .infinity , alignment: .leading)
                     //.border(.gray)
@@ -72,7 +72,7 @@ struct InventoryScreen: View {
                 .padding()
                 .frame(maxWidth: .infinity)
                 .foregroundColor(Color.white)
-                .background(Color.blue)
+                .background(Color.green)
                 .cornerRadius(10)
                 .padding()
   
@@ -143,7 +143,7 @@ struct InventoryScreen: View {
                         .padding()
                         .frame(maxWidth: .infinity)
                         .foregroundColor(Color.white)
-                        .background(Color.blue)
+                        .background(Color.green)
                         .cornerRadius(10)
                         .padding()
                         

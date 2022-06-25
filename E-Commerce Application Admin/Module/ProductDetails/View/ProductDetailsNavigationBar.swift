@@ -45,32 +45,32 @@ struct ProductDetailsNavigationBar: View {
                Spacer()
             Spacer().frame(width:8)
             //  --------- start of add icon -----------------
-        
-                NavigationLink(destination: AddProductScreen(product: product), tag: 1, selection: $selection){
-                HStack {
-                    Text(buttonText)
-                    .foregroundColor(.black)
-                }
-                .onTapGesture {
-                    self.selection = 1
-                    self.isActive.toggle()
-                    if(editingEnabled){
-//                        buttonText = "Save"
-                        editingEnabled = false
-                    }else{
-//                        buttonText = "Edit"
-                        editingEnabled = true
-                    }
-                }
-                }
-                    
-//                .background(NavigationLink(destination: WishList(product: [Product3(name: "test", price: 90.0, size: "S", desc: "desc")]), isActive: $isActive) { EmptyView() })
-                .padding(15)
-                .frame(width: 70, height: 40)
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(color: Color.gray, radius: 3, x: 0, y: 3)
-                
+//        
+//                NavigationLink(destination: AddProductScreen(product: product), tag: 1, selection: $selection){
+//                HStack {
+//                    Text(buttonText)
+//                    .foregroundColor(.black)
+//                }
+//                .onTapGesture {
+//                    self.selection = 1
+//                    self.isActive.toggle()
+//                    if(editingEnabled){
+////                        buttonText = "Save"
+//                        editingEnabled = false
+//                    }else{
+////                        buttonText = "Edit"
+//                        editingEnabled = true
+//                    }
+//                }
+//                }
+//                    
+////                .background(NavigationLink(destination: WishList(product: [Product3(name: "test", price: 90.0, size: "S", desc: "desc")]), isActive: $isActive) { EmptyView() })
+//                .padding(15)
+//                .frame(width: 70, height: 40)
+//                .background(Color.white)
+//                .cornerRadius(10)
+//                .shadow(color: Color.gray, radius: 3, x: 0, y: 3)
+//                
             //  --------- end of fav icon -----------------
                Spacer().frame(width: 24.0)
             }.padding(.bottom, 16)

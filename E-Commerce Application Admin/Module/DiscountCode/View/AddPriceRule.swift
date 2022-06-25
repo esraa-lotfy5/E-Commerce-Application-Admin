@@ -189,7 +189,7 @@ struct AddPriceRule: View {
                     .padding()
                     .frame(maxWidth: .infinity)
                     .foregroundColor(Color.white)
-                    .background(Color.blue)
+                    .background(Color.green)
                     .cornerRadius(10)
                     .padding()
                 
