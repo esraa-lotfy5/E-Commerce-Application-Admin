@@ -31,31 +31,6 @@ struct CreateCustomerView: View {
         
         VStack {
             
-//            HStack (alignment: .top, spacing: 0){
-//
-//                //MARK:- back button
-//                Spacer().frame(width:10)
-//                HStack{
-//                    Image(systemName: "chevron.left")
-//                        .foregroundColor(.black)
-//                }
-//                .onTapGesture {
-//                    self.presentationMode.wrappedValue.dismiss()
-//
-//                }
-//                .frame(width: 50, height: 40)
-//                .background(Color.white)
-//                .cornerRadius(10)
-//                .shadow(color: Color.gray, radius: 3, x: 0, y: 3)
-//                Spacer().frame(width:50)
-//                Spacer()
-//                Text("Register").bold().padding(.top)
-//                Spacer()
-//                Spacer()
-//
-//            }.frame(height:200)
-            
-            
             HStack {
                 
                 Image(systemName: "chevron.left")
@@ -236,7 +211,7 @@ struct CreateCustomerView: View {
                     
                 }.padding().frame(maxWidth: .infinity)
                     .foregroundColor(Color.white)
-                    .background(Color.blue)
+                    .background(Color.green)
                     .cornerRadius(10)
                     .padding()
                 
