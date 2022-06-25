@@ -106,7 +106,7 @@ struct ProductDetailsScreen: View {
                     
                     Button(action: {
                         print("Go to Inventory level")
-                        print("from details == \(product?.variants?[0].inventoryItemID ?? 0)")
+                        print("from details == \(product.variants?[0].inventoryItemID ?? 0)")
                         isAlertInventory.toggle()
                     })
                     {
@@ -119,7 +119,7 @@ struct ProductDetailsScreen: View {
                         .disabled(isAvailable)
                         
                     .background(NavigationLink(destination:  // link in background
-                                               InventoryScreen(inventoryItemId: product?.variants?[0].inventoryItemID ?? 0), isActive: $isAlertInventory) { EmptyView() })
+                                               InventoryScreen(inventoryItemId: product.variants?[0].inventoryItemID ?? 0), isActive: $isAlertInventory) { EmptyView() })
 
 
                     //TODO: Details
