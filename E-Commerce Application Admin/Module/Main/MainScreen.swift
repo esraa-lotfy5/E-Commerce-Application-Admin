@@ -53,8 +53,6 @@ struct MainScreen: View {
                         .cornerRadius(10)
                         .padding()
                 }
-                
-               
             }
        }.navigationBarHidden(true)
     }

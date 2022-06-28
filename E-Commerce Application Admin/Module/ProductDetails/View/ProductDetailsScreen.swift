@@ -107,10 +107,10 @@ struct ProductDetailsScreen: View {
                         for varient in product.variants ?? []{
                             if( ((varient.title?.split(separator: "/")[0].trimmingCharacters(in: .whitespaces) ?? "") == selectedSize.trimmingCharacters(in: .whitespaces)) && (varient.title?.split(separator: "/")[1].trimmingCharacters(in: .whitespaces) ?? "" == selectedColor.trimmingCharacters(in: .whitespaces))){
                                 varientInventoryID = varient.inventoryItemID ?? -1
-                                print("varient id: ->>>>> \(varientInventoryID ?? -1)")
+//                                print("varient id: ->>>>> \(varientInventoryID ?? -1)")
                             }
                         }
-                        print("from details == \(product.variants?[0].inventoryItemID ?? 0)")
+//                        print("from details == \(product.variants?[0].inventoryItemID ?? 0)")
                         isAlertInventory.toggle()
                     })
                     {
