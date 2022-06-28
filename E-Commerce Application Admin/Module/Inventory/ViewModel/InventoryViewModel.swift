@@ -51,7 +51,7 @@ class InventoryViewModel : ObservableObject{
     
     }
 
-    func updateInventoryLevel (inventoryItem : Parameters) -> Bool{
+    func updateInventoryLevel (inventoryItem : Parameters){
         var returned : Bool = false
         api.updateInventoryLevel(InventoryItem: inventoryItem) { (result) in
                         switch result {
@@ -63,7 +63,7 @@ class InventoryViewModel : ObservableObject{
                             print(error.userInfo[NSLocalizedDescriptionKey] as? String ?? "Unknown Error")
                         }
         }
-        return returned
+       // return returned
     
     }
     

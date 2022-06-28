@@ -14,10 +14,12 @@ struct InventoryScreen: View {
     @State var showingAlert = false
     @State var itemInventory : InventoryLevel?
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    @State var sucessfulAlert = false
 //    init (inventoryItemId : Int){
 //        self.inventoryItemId = inventoryItemId
 //    }
+    
+    @State var  stringQuantity:String = ""
     
     
     var body: some View {
@@ -49,13 +51,16 @@ struct InventoryScreen: View {
 
            VStack{
 
-                Text(" Available Items = \(viewModelInventory.inventoryArr?.available ?? 0)")
+               Text("\(stringQuantity ) ")
+                //Text(" Available Items = \(viewModelInventory.inventoryArr?.available ?? 0)")
                     .foregroundColor(Color.green)
                     .font(.title2)
                     .frame(maxWidth: .infinity , alignment: .leading)
                     //.border(.gray)
                     .cornerRadius(5)
                     .padding()
+                    
+                    
                     
                 
                 
@@ -65,7 +70,11 @@ struct InventoryScreen: View {
             viewModelInventory.getInventoryLevel(inventoryItemId: inventoryItemId! )
             self.itemInventory = viewModelInventory.inventoryArr
            // print("id== \(inventoryItemId!)")
-
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                stringQuantity = " Available Items = \(viewModelInventory.inventoryArr?.available ?? 0)"
+            }
+            
+            
         } label: {
             Text("Get Quantity")
                 .bold()
@@ -129,12 +138,21 @@ struct InventoryScreen: View {
                         showingAlert = true
                     }else{
                         
-                        let inventoryItemObj = [
-                        "location_id": Constants.locationId,
-                        "inventory_item_id": inventoryItemId!,
-                        "available": Int(textInventoryId)
-                         ]
-                        viewModelInventory.postInventoryLevel(inventoryItem: inventoryItemObj)
+//                        let inventoryItemObj = [
+//                        "location_id": Constants.locationId,
+//                        "inventory_item_id": inventoryItemId!,
+//                        "available": Int(textInventoryId)
+//                         ]
+//                        viewModelInventory.postInventoryLevel(inventoryItem: inventoryItemObj)
+                                             let inventoryItemObj = [
+                                            "location_id": Constants.locationId,
+                                            "inventory_item_id": inventoryItemId!,
+                                            "available_adjustment": Int(textInventoryId)
+                                      ]
+                                            viewModelInventory.updateInventoryLevel(inventoryItem: inventoryItemObj)
+                        
+                        sucessfulAlert.toggle()
+                        textInventoryId = ""
                     }
 
                 } label: {
@@ -148,6 +166,9 @@ struct InventoryScreen: View {
                         .padding()
                         
                 }.alert("the input isn't correct", isPresented: $showingAlert) {
+                    Button("OK", role: .cancel) { }
+                }
+                .alert("The quantity is updated successfully", isPresented: $sucessfulAlert) {
                     Button("OK", role: .cancel) { }
                 }
                 //end of button
