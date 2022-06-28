@@ -73,7 +73,8 @@ class DiscountCodeViewModel : ObservableObject {
     }
     
     
-    func getDiscountCode (priceRuleId : Int){
+    func getDiscountCode (priceRuleId : Int) -> Bool{
+        var returnedBool : Bool = false
         api.getDiscountCode(discountId: priceRuleId) { (result) in
             switch result {
             case .success(let response):
@@ -81,10 +82,12 @@ class DiscountCodeViewModel : ObservableObject {
                 print("DISCOUNT CODE GETTTT\(String(describing: responseDiscountCode))")
                 self.discountArr = responseDiscountCode?.discountCodes ?? []
                 print("\nDISCOUNT CODE ARRAY \(self.discountArr)\n")
+                returnedBool = true
             case .failure(let error):
                 print(error.userInfo[NSLocalizedDescriptionKey] as? String ?? "Unknown Error")
             }
         }
+        return returnedBool
     }
     
     

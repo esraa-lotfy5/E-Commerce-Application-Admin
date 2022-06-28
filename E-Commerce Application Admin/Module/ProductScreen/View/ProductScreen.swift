@@ -12,6 +12,8 @@ var items : [Product] = [Product(id: 6870135341195, title: "ADIDAS | CLASSIC BAC
 
 struct ProductScreen: View {
     @ObservedObject var productsViewModel : ProductsViewModel = ProductsViewModel()
+    @State var deleteAlert : Bool = false
+    @State var deleteItem : Bool = false
     var body: some View {
         
             VStack{
@@ -26,12 +28,24 @@ struct ProductScreen: View {
                         
                       .onDelete { indexSet in
                 
-                          DispatchQueue.main.async {
-                              
-                          productsViewModel.deleteProduct(product: productsViewModel.products[indexSet.first ?? -1])
-                              productsViewModel.products.remove(atOffsets: indexSet)
+                          deleteAlert.toggle()
+                          if deleteItem {
+                              DispatchQueue.main.async {
+                                  
+                              productsViewModel.deleteProduct(product: productsViewModel.products[indexSet.first ?? -1])
+                                  productsViewModel.products.remove(atOffsets: indexSet)
+                              }
+                          } else{
+                              print("can't ")
                           }
-                      }
+
+                      }.alert(isPresented: $deleteAlert) { () -> Alert in
+                                                       Alert(title: Text("Alert"), message: Text("Do you want to delete this item ?"), primaryButton: .default(Text("Delete"), action: {
+                                                           print("Okay Click")
+                                                           deleteItem.toggle()
+                    
+                                                       }), secondaryButton: .destructive(Text("Cancel")))
+                                               }
                 }
                 
             }.onAppear(perform: {

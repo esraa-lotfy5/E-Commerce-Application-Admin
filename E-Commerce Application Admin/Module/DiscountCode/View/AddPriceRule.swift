@@ -20,6 +20,7 @@ struct AddPriceRule: View {
     @State var priceRuleTitle: String = ""
     @State var priceRuleValue: String = ""
     @State var showAlert : Bool = false
+    @State var alertSucess : Bool = false
     
     var body: some View {
         VStack{
@@ -117,7 +118,7 @@ struct AddPriceRule: View {
             Text("Important Note : when the target type is 'shipping_line', then the allocation method must be 'each' and the value type must be 'percentage'")
                 .frame(maxWidth: .infinity,alignment: .leading)
                 .foregroundColor(Color.red)
-                .font(.body)
+                .font(.subheadline)
                 .padding(.leading , 20)
                 .lineLimit(.max)
 
@@ -179,6 +180,9 @@ struct AddPriceRule: View {
                                                    ]
                     
                     viewModelDiscount.postPriceRule(priceRule: priceRuleObj)
+                    alertSucess.toggle()
+                    priceRuleTitle = ""
+                    priceRuleValue = ""
                 }
                 
                 
@@ -194,6 +198,8 @@ struct AddPriceRule: View {
                     .padding()
                 
             }.alert("Please fill all Fields", isPresented: $showAlert) {
+                Button("OK", role: .cancel) { }}
+            .alert("Price Rule is added succesufelly", isPresented: $alertSucess) {
                 Button("OK", role: .cancel) { }}
 
             

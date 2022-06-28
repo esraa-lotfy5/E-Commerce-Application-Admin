@@ -15,8 +15,8 @@ struct PriceRuleItem: View {
     @State var showAlert : Bool = false
     @State var isActiveItem : Bool = false
     @State var discountArrInItem : [DiscountCode] = []
-
-
+    @State var deleteItem : Bool = false
+    @State var sucessAlert : Bool = false
     
     var body: some View {
         
@@ -58,9 +58,10 @@ struct PriceRuleItem: View {
             
             //delete price rule button
             Button {
-                print("delete button is pressed")
-                viewModelDiscount.deletePriceRule(priceRuleId: priceRuleItemId)
-                self.presentationMode.wrappedValue.dismiss()
+//                print("delete button is pressed")
+//                viewModelDiscount.deletePriceRule(priceRuleId: priceRuleItemId)
+//                self.presentationMode.wrappedValue.dismiss()
+                deleteItem.toggle()
             } label: {
                 Text("Delete price rule")
                     .bold()
@@ -70,7 +71,18 @@ struct PriceRuleItem: View {
                     .background(Color.green)
                     .cornerRadius(10)
                     .padding()
-            }
+            }.alert("you want to delete this item", isPresented: $deleteItem) {
+                
+                Button ("Cancel" , role: .destructive){
+                    print("cancel is pressed")
+                }
+               Button("OK", role: .cancel) {
+                   print("ok in alert is pressed")
+                   print("delete button is pressed")
+                   viewModelDiscount.deletePriceRule(priceRuleId: priceRuleItemId)
+                   self.presentationMode.wrappedValue.dismiss()
+               }
+           }
 
             
             //retreive all discount code button
@@ -119,7 +131,9 @@ struct PriceRuleItem: View {
                                                        ]
                                                    ]
                   //  print(discountCodeObj)
-                   // viewModelDiscount.postDiscountCode(discountCode: discountCodeObj, discountCodeId: priceRuleItemId)
+                    viewModelDiscount.postDiscountCode(discountCode: discountCodeObj, discountCodeId: priceRuleItemId)
+                    sucessAlert.toggle()
+                    discountCodeTitle = ""
                 }
                 
                 
@@ -134,6 +148,9 @@ struct PriceRuleItem: View {
                     .cornerRadius(10)
                     .padding()
             }.alert("the input isn't correct", isPresented: $showAlert) {
+                Button("OK", role: .cancel) { }
+            }
+            .alert("Discount Code is added successfully", isPresented: $sucessAlert) {
                 Button("OK", role: .cancel) { }
             }
             

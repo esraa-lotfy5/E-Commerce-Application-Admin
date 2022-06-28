@@ -44,7 +44,15 @@ struct DiscountCodeList: View {
         
         //start of the list
         List{
+            
+            if discountArrInDetails.isEmpty {
+                Image("emptyList").resizable()
+                    .frame(width: 280, height: 400, alignment: .center)
+            }
         
+            else{
+                
+            
             ForEach(discountArrInDetails, id: \.self) { row in
 
                 Section{
@@ -91,6 +99,7 @@ struct DiscountCodeList: View {
 //                viewModelDiscount.getDiscountCode(priceRuleId: priceRuleId )
 //                print("\n FROM INSIDE VIEW IT SELF \(viewModelDiscount.discountArr)")
 //            }
+        }
     }
 }
 
