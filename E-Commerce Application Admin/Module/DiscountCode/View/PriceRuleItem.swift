@@ -53,7 +53,7 @@ struct PriceRuleItem: View {
                     .foregroundColor(Color.black)
                 Text("\(priceRuleItemId)")
                     .font(.body)
-                    .foregroundColor(Color.blue)
+                    .foregroundColor(Color.green)
             }.padding()
             
             //delete price rule button
@@ -67,7 +67,7 @@ struct PriceRuleItem: View {
                     .padding()
                     .frame(maxWidth: .infinity)
                     .foregroundColor(Color.white)
-                    .background(Color.blue)
+                    .background(Color.green)
                     .cornerRadius(10)
                     .padding()
             }
@@ -86,7 +86,7 @@ struct PriceRuleItem: View {
                     .padding()
                     .frame(maxWidth: .infinity)
                     .foregroundColor(Color.white)
-                    .background(Color.blue)
+                    .background(Color.green)
                     .cornerRadius(10)
                     .padding()
             }.background(NavigationLink(destination:  // link in background
@@ -130,7 +130,7 @@ struct PriceRuleItem: View {
                     .padding()
                     .frame(maxWidth: .infinity)
                     .foregroundColor(Color.white)
-                    .background(Color.blue)
+                    .background(Color.green)
                     .cornerRadius(10)
                     .padding()
             }.alert("the input isn't correct", isPresented: $showAlert) {

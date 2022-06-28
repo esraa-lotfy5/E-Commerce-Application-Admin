@@ -2,7 +2,7 @@
 //  InventoryViewModel.swift
 //  E-Commerce Application Admin
 //
-//  Created by Nour Gweda on 24/06/2022.
+//  Created by Esraa Lotfy  on 25/06/2022.
 //
 
 import Foundation
