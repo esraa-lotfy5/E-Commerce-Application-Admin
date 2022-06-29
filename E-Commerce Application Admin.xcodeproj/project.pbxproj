@@ -53,6 +53,7 @@
 		BC59EF30285CE18E0048AE21 /* CreateCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59EF2F285CE18E0048AE21 /* CreateCustomerView.swift */; };
 		BC59EF32285CE3F10048AE21 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59EF31285CE3F10048AE21 /* AuthViewModel.swift */; };
 		BC59EF35285CE4350048AE21 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59EF34285CE4350048AE21 /* Customer.swift */; };
+		BCB9315F286BDB6000ECD0FF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9315E286BDB6000ECD0FF /* LoginView.swift */; };
 		E1CAFE533B5C8CE185633E8A /* Pods_E_Commerce_Application_AdminTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD6CF80C32213E3647AE510 /* Pods_E_Commerce_Application_AdminTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,7 @@
 		BC59EF2F285CE18E0048AE21 /* CreateCustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCustomerView.swift; sourceTree = "<group>"; };
 		BC59EF31285CE3F10048AE21 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		BC59EF34285CE4350048AE21 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		BCB9315E286BDB6000ECD0FF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D3B2D6E70271CFF581A51991 /* Pods-E-Commerce Application Admin-E-Commerce Application AdminUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-Commerce Application Admin-E-Commerce Application AdminUITests.debug.xcconfig"; path = "Target Support Files/Pods-E-Commerce Application Admin-E-Commerce Application AdminUITests/Pods-E-Commerce Application Admin-E-Commerce Application AdminUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D480A8297474A09F5715C445 /* Pods_E_Commerce_Application_Admin_E_Commerce_Application_AdminUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_E_Commerce_Application_Admin_E_Commerce_Application_AdminUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D61E02A1BAF8CF469BC88366 /* Pods-E-Commerce Application AdminTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-Commerce Application AdminTests.debug.xcconfig"; path = "Target Support Files/Pods-E-Commerce Application AdminTests/Pods-E-Commerce Application AdminTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 		BC59EF26285CDFC30048AE21 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				BCB9315C286BDB4B00ECD0FF /* Login */,
 				091AD80528671A9F00DFEB59 /* Inventory */,
 				09C9576D2863942C003AE625 /* DiscountCode */,
 				093D8534285F27C800BF4357 /* ProductDetails */,
@@ -508,6 +511,22 @@
 				BC59EF34285CE4350048AE21 /* Customer.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BCB9315C286BDB4B00ECD0FF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BCB9315D286BDB5500ECD0FF /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		BCB9315D286BDB5500ECD0FF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCB9315E286BDB6000ECD0FF /* LoginView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -786,6 +805,7 @@
 				095BD420285E5CA4005EDAA5 /* Product.swift in Sources */,
 				09C9576A28639307003AE625 /* PriceRule.swift in Sources */,
 				091AD80928671AF400DFEB59 /* InventoryScreen.swift in Sources */,
+				BCB9315F286BDB6000ECD0FF /* LoginView.swift in Sources */,
 				09C9576B28639307003AE625 /* InventoryLevels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

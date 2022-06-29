@@ -11,7 +11,7 @@ struct MainScreen: View {
     
     var body: some View {
         
-        NavigationView{
+//        NavigationView{
             
             VStack {
             
@@ -53,8 +53,8 @@ struct MainScreen: View {
                         .cornerRadius(10)
                         .padding()
                 }
-            }
-       }.navigationBarHidden(true)
+            }.navigationBarHidden(true)
+//       }.navigationBarHidden(true)
     }
 }
 

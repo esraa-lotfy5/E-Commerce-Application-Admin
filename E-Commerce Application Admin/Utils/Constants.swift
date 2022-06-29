@@ -12,6 +12,7 @@ struct Constants {
     // endpoints
     static let endPointCreateCustomer = "customers.json"
     static let locationId = 66823782573  //for post inventory
+    static let loginPassword = "123"
 }
 
 struct ErrorMessages {
