@@ -2,7 +2,7 @@
 //  InventoryViewModel.swift
 //  E-Commerce Application Admin
 //
-//  Created by Nour Gweda on 24/06/2022.
+//  Created by Esraa Lotfy  on 25/06/2022.
 //
 
 import Foundation
@@ -51,7 +51,7 @@ class InventoryViewModel : ObservableObject{
     
     }
 
-    func updateInventoryLevel (inventoryItem : Parameters) -> Bool{
+    func updateInventoryLevel (inventoryItem : Parameters){
         var returned : Bool = false
         api.updateInventoryLevel(InventoryItem: inventoryItem) { (result) in
                         switch result {
@@ -63,7 +63,7 @@ class InventoryViewModel : ObservableObject{
                             print(error.userInfo[NSLocalizedDescriptionKey] as? String ?? "Unknown Error")
                         }
         }
-        return returned
+       // return returned
     
     }
     

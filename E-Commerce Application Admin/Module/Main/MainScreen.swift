@@ -53,19 +53,6 @@ struct MainScreen: View {
                         .cornerRadius(10)
                         .padding()
                 }
-                
-//                NavigationLink(destination: Text("CRUD Gift Cards")
-//                    .navigationBarBackButtonHidden(true)
-//                ) {
-//                    Text("Gift Cards")
-//                        .bold()
-//                        .padding()
-//                        .frame(maxWidth: .infinity)
-//                        .foregroundColor(Color.white)
-//                        .background(Color.green)
-//                        .cornerRadius(10)
-//                        .padding()
-//                }
             }
        }.navigationBarHidden(true)
     }

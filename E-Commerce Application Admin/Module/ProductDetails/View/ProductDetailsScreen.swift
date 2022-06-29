@@ -12,8 +12,8 @@ struct ProductDetailsScreen: View {
     @State var product : Product
     
     @State private var presentAlert = false
-    @State var newSize = ""
-    @State var newColor = ""
+    @State var selectedSize = ""
+    @State var selectedColor = ""
 //    @State var editingEnabled = false
     
     @State var isAvailable : Bool = false
@@ -23,7 +23,7 @@ struct ProductDetailsScreen: View {
     @State var varients : [String] = []
 
     
-    @State var varientID:Int?
+    @State var varientInventoryID:Int?
 
     @State var isAlertInventory : Bool = false
     
@@ -34,9 +34,7 @@ struct ProductDetailsScreen: View {
     let colorWhite = Color(red: 1, green: 1, blue: 1)
     var productSizes = "OS"
     var productColors = "black"
-    
-    
-    
+        
     var body: some View {
         ScrollView {
         VStack{
@@ -106,7 +104,13 @@ struct ProductDetailsScreen: View {
                     
                     Button(action: {
                         print("Go to Inventory level")
-                        print("from details == \(product.variants?[0].inventoryItemID ?? 0)")
+                        for varient in product.variants ?? []{
+                            if( ((varient.title?.split(separator: "/")[0].trimmingCharacters(in: .whitespaces) ?? "") == selectedSize.trimmingCharacters(in: .whitespaces)) && (varient.title?.split(separator: "/")[1].trimmingCharacters(in: .whitespaces) ?? "" == selectedColor.trimmingCharacters(in: .whitespaces))){
+                                varientInventoryID = varient.inventoryItemID ?? -1
+//                                print("varient id: ->>>>> \(varientInventoryID ?? -1)")
+                            }
+                        }
+//                        print("from details == \(product.variants?[0].inventoryItemID ?? 0)")
                         isAlertInventory.toggle()
                     })
                     {
@@ -119,7 +123,7 @@ struct ProductDetailsScreen: View {
                         .disabled(isAvailable)
                         
                     .background(NavigationLink(destination:  // link in background
-                                               InventoryScreen(inventoryItemId: product.variants?[0].inventoryItemID ?? 0), isActive: $isAlertInventory) { EmptyView() })
+                       InventoryScreen(inventoryItemId: varientInventoryID), isActive: $isAlertInventory) { EmptyView() })
 
 
                     //TODO: Details
@@ -144,81 +148,41 @@ struct ProductDetailsScreen: View {
                     HStack {
                         Text("Sizes")
                         Spacer(minLength: 100)
-//                        if(editingEnabled){
-//                            Button(action: {
-//                                print("Admin want to add new size")
-//                                presentAlert = true
-//                            }, label: {
-//                                Image(systemName: "plus")
-//                                    .foregroundColor(.white)
-//                                    .padding(3)
-//                                    .background(Color.blue)
-//                                    .cornerRadius(5)
-//                            })
-//                        }
+                        Picker(selection: $selectedSize, label: Text("Select size")) {
+                            ForEach(product.options?.first?.values.map { $0 } ?? ["N/A"], id: \.self) {
+                                Text($0)
+                            }
+                       }.pickerStyle(MenuPickerStyle())
                     }.frame(height: 50)
                         .padding(.leading)
                         .padding(.trailing)
-                        .background(colorGray)
-                    ScrollView{
-                        HStack {
-                            ForEach(product.options?.first?.values .map { $0 } ?? ["N/A"] , id: \.self){ item  in
-                                Text(item)
-                                    .foregroundColor( .white)
-                                    .fontWeight(.semibold)
-                                    .padding(3)
-                                    .background(Color.green)
-                                    .cornerRadius(5)
-                            }
-                        
-                        }.frame(height: 50)
-                            .padding(.leading)
-                            .padding(.trailing)
-                            .background(colorWhite)
-                    }
-                }
+                }.background(colorGray)
                     
                 //TODO: Colors
                 VStack{
                 HStack {
                     Text("Colors")
                     Spacer(minLength: 100)
-//                    if(editingEnabled){
-//                        Button(action: {
-//                            print("Admin want to add new color")
-//                            presentAlert = true
-//                        }, label: {
-//                            Image(systemName: "plus")
-//                                .foregroundColor(.white)
-//                                .padding(3)
-//                                .background(Color.blue)
-//                                .cornerRadius(5)
-//                        })
-//                    }
+                    Picker("Select color" ,selection: $selectedColor) {
+                                   ForEach(product.options?.last?.values.map { $0 } ?? ["N/A"], id: \.self) {
+                                       Text($0)
+                                   }
+                               }
+                               .pickerStyle(.menu)
+                
                 }.frame(height: 50)
                     .padding(.leading)
                     .padding(.trailing)
-                    .background(colorGray)
-                ScrollView{
-                    HStack {
-                        ForEach(product.options?.last?.values .map { $0 } ?? ["N/A"] , id: \.self){ item  in
-                            Text(item)
-                                .foregroundColor( .white)
-                                .fontWeight(.semibold)
-                                .padding(3)
-                                .background(Color.green)
-                                .cornerRadius(5)
-                            }
-                        }.frame(height: 50)
-                            .padding(.leading)
-                            .padding(.trailing)
-                            .background(colorWhite)
-                        }
+                    .background(colorWhite)
                     }.padding(.top, -8)
                 }.padding()
             }
             //------------ End of Product details ----------------------
         }.navigationBarHidden(true)
+            .onAppear{
+                selectedSize = product.options?.first?.values.map { $0 [0]} ?? ""
+                selectedColor = product.options?.last?.values.map { $0 [0]} ?? ""
+            }
     }
 }
 
